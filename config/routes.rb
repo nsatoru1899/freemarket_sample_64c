@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root 'test#index'
+  root 'tests#index'
 
+  resources :tests , only: [:create,]
+  
 end
