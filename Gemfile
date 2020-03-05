@@ -67,3 +67,4 @@ end
 
 gem 'carrierwave' #画像アップロードに使用 寺西
 gem 'mini_magick' #carrierwaveとセットで画像の処理に使用 寺西
+gem 'fog-aws' #外部のストレージ選択・アップロード補助のため 寺西

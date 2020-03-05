@@ -4,10 +4,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick #minimagick経由で画像のリサイズを行う 寺西
 
   process resize_to_fit: [100, 100] # 保存前処理に100×100の画像にリサイズ
-  
+
   # Choose what kind of storage to use for this uploader:
-  storage :file
-  # storage :fog
+  # storage :file
+  storage :fog
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
