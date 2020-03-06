@@ -3,9 +3,9 @@ require 'carrierwave/storage/file'
 require 'carrierwave/storage/fog'
 
 CarrierWave.configure do |config|
-  # if Rails.env.development? || Rails.env.test?
-  # config.storage = :fog
-  # elsif Rails.env.production? #本番はS3に保存する
+  if Rails.env.development? || Rails.env.test? #開発とテスト条件ではファイル保存 3/7
+    config.storage = :file
+  elsif Rails.env.production? #本番はS3に保存する
   config.storage = :fog
   config.fog_provider = 'fog/aws'
   config.fog_credentials = {
@@ -17,4 +17,5 @@ CarrierWave.configure do |config|
 
   config.fog_directory  = 'freemarket-sample-64c'
   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/freemarket-sample-64c'
+  end
 end
