@@ -1,0 +1,17 @@
+<h1>hello<h1>
+<% @tests.each do |test| %>
+  <%= test.body %>
+  <%= image_tag test.image.url, class: "test__image"  %>
+<% end %>
+
+<div class="test__message-form">
+  <%= form_for @test do |f| %>
+    <div class="input-box">
+      <%= f.text_field :body, class: "input-box__text", placeholder: "type a message" %>
+      <%= f.label :image, class: "input-box__image" do %>
+        <%= f.file_field :image, class: "input-box__image__hidden" %>
+      <% end %>
+    </div>
+    <%= f.submit 'Send', class: "send-btn" %>
+  <% end %>
+</div>

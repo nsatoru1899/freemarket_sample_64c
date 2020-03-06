@@ -16,4 +16,10 @@
 # Ignore Byebug command history file.
 .byebug_history
 
+
+
+# Ignore carriarwave images
+public/uploads/*
+# .env
+
 /config/secrets.yml
