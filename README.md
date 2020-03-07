@@ -9,13 +9,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false|
-|password|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 |familyname|string| null: false|
 |firstname|string| null: false|
 |familyname_kana|string| null: false|
 |firstname_kana|string| null: false|
-|phonenumber|integer| null: false|
+|phonenumber|integer| null: false, unique: true|
 |birth_date|date| null: false|
 |detail|text|null: true|
 
@@ -33,15 +33,15 @@
 |------|----|-------|
 |name|string|null: false, foregin_key: true|
 |detail|text|null: false, foregin_key: true|
-|price|integer|null: false, foregin_key: true|
-|brand_id|reference| null: false, foreign_key: true|
+|price|integer|null: false|
+|brand_id|reference| foreign_key: true|
 |status_id|reference| null: false, foreign_key: true|
 |charge_id|reference| null: false, foreign_key: true|
 |prefecture_code|code| null: false|
 |days_id|reference| null: false, foreign_key: true|
 |category_id|reference| null: false, foreign_key: true|
 |seller_id|reference| null: false, foreign_key: true|
-|buyer_id|reference| null: false, foreign_key: true|
+|buyer_id|reference| foreign_key: true|
 
 ### Association
 
@@ -64,10 +64,10 @@
 |------|----|-------|
 |user_id|reference|null: false, foregin_key: true|
 |postal_code|string|null: false|
-|prefecture_code|code|foregin_key: true|
+|prefecture_code|code|null: false|
 |city|string| null: false|
-|block|integer| null: false|
-|building|string| null: false|
+|block|string| null: false|
+|building|string| null: true|
 
 ### Association
 
@@ -88,7 +88,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|status|text|null: false|
+|status|string|null: false|
 
 ### Association
 
@@ -107,7 +107,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|days|string|null: false, foregin_key: true|
+|days|string|null: false|
 
 ### Association
 - has_many :items
@@ -126,8 +126,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|reference|null: false, foregin_key: true|
-|card_id|reference|null: false|
-|customer_id|reference|null: false|
+|card_id|string|null: false|
+|customer_id|string|null: false|
 
 ### Association
 - belongs_to :user
