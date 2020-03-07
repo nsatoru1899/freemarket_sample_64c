@@ -31,8 +31,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, foregin_key: true|
-|detail|text|null: false, foregin_key: true|
+|name|string|null: false|
+|detail|text|null: false|
 |price|integer|null: false|
 |brand_id|reference| foreign_key: true|
 |status_id|reference| null: false, foreign_key: true|
@@ -84,7 +84,7 @@
 
 - belongs_to :item
 
-## item_statusテーブル
+## item_statusesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
