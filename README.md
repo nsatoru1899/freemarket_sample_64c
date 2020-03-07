@@ -62,7 +62,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foregin_key: true|
+|user_id|reference|null: false, foreign_key: true|
 |postal_code|string|null: false|
 |prefecture_code|code|null: false|
 |city|string| null: false|
@@ -77,7 +77,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|item_id|reference|null: false, foregin_key: true|
+|item_id|reference|null: false, foreign_key: true|
 |path|string|null: false|
 
 ### Association
@@ -125,7 +125,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foregin_key: true|
+|user_id|reference|null: false, foreign_key: true|
 |card_id|string|null: false|
 |customer_id|string|null: false|
 
@@ -136,8 +136,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foregin_key: true|
-|item_id|reference|null: false, foregin_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 |content|text|null: false|
 
 ### Association
@@ -148,8 +148,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|reference|null: false, foregin_key: true|
-|item_id|reference|null: false, foregin_key: true|
+|user_id|reference|null: false, foreign_key: true|
+|item_id|reference|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
