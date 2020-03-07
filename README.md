@@ -131,7 +131,7 @@
 
 ### Association
 - belongs_to :user
-
+ 
 ## commentsテーブル
 
 |Column|Type|Options|
