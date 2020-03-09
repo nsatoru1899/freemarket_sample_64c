@@ -44,7 +44,6 @@
 
 ### Association
 
-- has_many :users, through: :likes
 - has_many :likes
 - has_many :comments
 - has_many :images
