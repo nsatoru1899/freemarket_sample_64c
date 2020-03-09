@@ -20,9 +20,8 @@
 |detail|text|null: true|
 
 ### Association
-- has_many :items, through: :likes
+- has_many :items
 - has_many :likes
-- has_many :items, through: :comments
 - has_many :comments
 - has_one :card
 - has_one :address
@@ -47,9 +46,9 @@
 
 - has_many :users, through: :likes
 - has_many :likes
-- has_many :users, through: :comments
 - has_many :comments
 - has_many :images
+- belongs_to :user
 - belongs_to :category
 - belongs_to :brand
 - belongs_to :status
