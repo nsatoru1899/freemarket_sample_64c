@@ -20,11 +20,11 @@
 |detail|text|null: true|
 
 ### Association
-- has_many :items
-- has_many :likes
-- has_many :comments
-- has_one :card
-- has_one :address
+- has_many :items, dependent: :destroy
+- has_many :likes dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_one :card dependent: :destroy
+- has_one :address dependent: :destroy
 
 ## itemsテーブル
 
@@ -44,9 +44,9 @@
 
 ### Association
 
-- has_many :likes
-- has_many :comments
-- has_many :images
+- has_many :likes dependent: :destroy
+- has_many :comments dependent: :destroy
+- has_many :images dependent: :destroy
 - belongs_to :user
 - belongs_to :category
 - belongs_to :brand
