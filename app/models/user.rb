@@ -13,6 +13,6 @@ class User < ApplicationRecord
   validates :nickname, presence: true
   validates :familyname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角のみで入力してください" }
   validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角のみで入力してください" }
-  validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角カタカナのみで入力してください" }
-  validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角カタカナのみで入力してください" }
+  validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
+  validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
 end
