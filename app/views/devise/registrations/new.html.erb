@@ -69,7 +69,7 @@
 
     <div class="field">
       <%= f.label :prefecture_code %><br />
-      <%= f.number_field :prefecture_code %>
+      <%= f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--" %>
     </div>
 
     <div class="field">
