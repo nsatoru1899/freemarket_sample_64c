@@ -8,7 +8,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :firstname, null: false
       t.string :familyname_kana, null: false
       t.string :firstname_kana, null: false
-      t.integer :phonenumber, null: false, unique: true
+      t.integer :phonenumber, unique: true
       t.date :birth_date, null: false
       t.text :detail
       ## Database authenticatable
