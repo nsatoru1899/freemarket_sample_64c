@@ -174,7 +174,7 @@ GEM
     parser (2.7.0.2)
       ast (~> 2.4.0)
     public_suffix (4.0.3)
-    puma (3.12.2)
+    puma (3.12.4)
     rack (2.2.2)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -315,7 +315,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   mini_magick
   mysql2 (>= 0.3.18, < 0.6.0)
-  puma (~> 3.0)
+  puma (~> 3.12)
   rails (~> 5.0.7, >= 5.0.7.2)
   rspec-rails
   rubocop
