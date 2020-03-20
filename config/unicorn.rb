@@ -1,4 +1,4 @@
-app_path = File.expand_path('../../../', __FILE__)
+app_path = File.expand_path('../..', __dir__)
 
 worker_processes 1
 # currentを指定
@@ -10,10 +10,10 @@ pid "#{app_path}/shared/tmp/pids/unicorn.pid"
 stderr_path "#{app_path}/shared/log/unicorn.stderr.log"
 stdout_path "#{app_path}/shared/log/unicorn.stdout.log"
 
-#Railsアプリケーションの応答を待つ上限時間を設定
+# Railsアプリケーションの応答を待つ上限時間を設定
 timeout 60
 
-#以下は応用的な設定なので説明は割愛
+# 以下は応用的な設定なので説明は割愛
 
 preload_app true
 GC.respond_to?(:copy_on_write_friendly=) && GC.copy_on_write_friendly = true

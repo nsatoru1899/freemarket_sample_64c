@@ -5,7 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 # Use mysql as the database for Active Record
@@ -51,7 +50,7 @@ group :development do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 group :production do
   gem 'unicorn', '5.4.1'
@@ -59,16 +58,16 @@ end
 
 group :development, :test do
   gem 'capistrano'
-  gem 'capistrano-rbenv'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'rspec-rails'
   gem 'factory_bot_rails'
+  gem 'rspec-rails'
 end
 
-gem 'carrierwave' #画像アップロードに使用 寺西
-gem 'mini_magick' #carrierwaveとセットで画像の処理に使用 寺西
-gem 'fog-aws' #外部のストレージ選択・アップロード補助のため 寺西
-gem 'devise' #user作成に必要 金
 gem 'active_hash' # 都道府県選択用 中村
+gem 'carrierwave' # 画像アップロードに使用 寺西
+gem 'devise' # user作成に必要 金
+gem 'fog-aws' # 外部のストレージ選択・アップロード補助のため 寺西
+gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西

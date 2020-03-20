@@ -1,14 +1,14 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick #minimagick経由で画像のリサイズを行う 寺西
+  include CarrierWave::MiniMagick # minimagick経由で画像のリサイズを行う 寺西
 
   process resize_to_fit: [100, 100] # 保存前処理に100×100の画像にリサイズ
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
 
-  # 本番環境と開発環境で条件分岐 3/7 寺西 
+  # 本番環境と開発環境で条件分岐 3/7 寺西
   if Rails.env.development? || Rails.env.test?
     storage :file
   else
