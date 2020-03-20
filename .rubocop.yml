@@ -28,3 +28,35 @@ Metrics/LineLength:
 #'frozen_string_literal: true'を無効
 Style/FrozenStringLiteralComment:
   Enabled: false
+
+#'Use only ascii symbols in comments.（コメントにascii symbolsのみ使用する規約）'を無効
+Style/AsciiComments:
+  Enabled: false
+
+#'Layout/EmptyLinesAroundBlockBody（余分な改行）'を無効
+Layout/EmptyLinesAroundBlockBody:
+  Enabled: false
+
+#'Layout/EmptyLinesAroundClassBody（余分な改行）'を無効
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+#'Layout/ExtraSpacing（余分なスペース）'を無効
+Layout/ExtraSpacing:
+  Enabled: false
+
+#'Layout/FirstArrayElementIndentation（余分なインテンド）を無効
+Layout/FirstArrayElementIndentation:
+  Enabled: false
+
+# 'Metrics/BlockLength'（1ファイル当たりの行数制限）の適用を無効'
+Metrics/BlockLength:
+  Enabled: false
+
+# 'Style/ClassAndModuleChildren'（クラス定義のネスト記法制限）の適用を無効'
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# 'Style/IfUnlessModifier:'（if/unlessの適用文字制限）の適用を無効'
+Style/IfUnlessModifier:
+  Enabled: false
