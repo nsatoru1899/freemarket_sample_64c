@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200315064145) do
+ActiveRecord::Schema.define(version: 20200318121922) do
+
+  create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",         null: false
+    t.string   "postal_code",     null: false
+    t.integer  "prefecture_code", null: false
+    t.string   "city",            null: false
+    t.string   "block",           null: false
+    t.string   "building"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
+  end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.text     "body",       limit: 65535
@@ -25,7 +37,7 @@ ActiveRecord::Schema.define(version: 20200315064145) do
     t.string   "firstname",                                         null: false
     t.string   "familyname_kana",                                   null: false
     t.string   "firstname_kana",                                    null: false
-    t.integer  "phonenumber",                                       null: false
+    t.integer  "phonenumber"
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
     t.string   "email",                                default: "", null: false
@@ -39,4 +51,5 @@ ActiveRecord::Schema.define(version: 20200315064145) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "addresses", "users"
 end

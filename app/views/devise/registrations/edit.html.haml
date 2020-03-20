@@ -1,0 +1,85 @@
+%h2
+  Edit #{resource_name.to_s.humanize}
+= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+  = render "devise/shared/error_messages", resource: resource
+  .field
+    = f.label :email
+    %br/
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+    %div
+      Currently waiting confirmation for: #{resource.unconfirmed_email}
+  .field
+    = f.label :password
+    %i (leave blank if you don't want to change it)
+    %br/
+    = f.password_field :password, autocomplete: "new-password"
+    - if @minimum_password_length
+      %br/
+      %em
+        = @minimum_password_length
+        characters minimum
+  .field
+    = f.label :password_confirmation
+    %br/
+    = f.password_field :password_confirmation, autocomplete: "new-password"
+  .field
+    = f.label :current_password
+    %i (we need your current password to confirm your changes)
+    %br/
+    = f.password_field :current_password, autocomplete: "current-password"
+  .field
+    = f.label :familyname
+    %br/
+    = f.text_field :familyname, autofocus: true, autocomplete: "familyname"
+  .field
+    = f.label :firstname
+    %br/
+    = f.text_field :firstname, autofocus: true, autocomplete: "firstname"
+  .field
+    = f.label :familyname_kana
+    %br/
+    = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana"
+  .field
+    = f.label :firstname_kana
+    %br/
+    = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana"
+  .field
+    = f.label :phonenumber
+    %br/
+    = f.telephone_field :phonenumber, autofocus: true, autocomplete: "phonenumber"
+  .field
+    = f.label :birth_date
+    %br/
+    = f.date_select :birth_date, autofocus: true, autocomplete: "birth_date"
+  .field
+    = f.label :detail
+    %br/
+    = f.text_area :detail, autofocus: true, autocomplete: "detail"
+  = f.fields_for :address do |f|
+    .field
+      = f.label :postal_code
+      %br/
+      = f.text_field :postal_code
+    .field
+      = f.label :prefecture_code
+      %br/
+      = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
+    .field
+      = f.label :city
+      %br/
+      = f.text_field :city
+    .field
+      = f.label :block
+      %br/
+      = f.text_field :block
+    .field
+      = f.label :building
+      %br/
+      = f.text_field :building
+  .actions
+    = f.submit "Update"
+%h3 Cancel my account
+%p
+  Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete}
+= link_to "Back", :back
