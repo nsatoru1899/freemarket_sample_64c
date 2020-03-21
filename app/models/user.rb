@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, password_length: 7..128
 
   has_many :items, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -11,8 +11,9 @@ class User < ApplicationRecord
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
   validates :nickname, presence: true
+  validates :phonenumber, numericality: true, allow_blank: true
   validates :familyname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角のみで入力してください" }
   validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角のみで入力してください" }
-  validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角カタカナのみで入力してください" }
-  validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角カタカナのみで入力してください" }
+  validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
+  validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
 end
