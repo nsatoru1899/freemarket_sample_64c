@@ -1,0 +1,22 @@
+$background-color: #f8f8f8;
+
+.header-user{
+  height: 128px;
+  background-color: $background-color;
+  width: 100%;
+
+  &__top{
+    height: 128px;
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
+    position: relative;
+   }
+
+    &__top__logo{
+      position: absolute;
+      top: 40px;
+      left: 33%;
+      cursor: pointer;
+    }
+}
