@@ -1,0 +1,115 @@
+.registration-header {
+  height: 128px;
+  background-color: #f8f8f8;
+}
+
+.registration-body {
+  text-align: center;
+  background-repeat: no-repeat;
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+
+  &__main {
+    width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+  
+  h2 {
+    font-size: 22px;
+    padding: 32px;
+    border-bottom: solid 2px #f5f5f5;
+  }
+
+  label {
+    font-weight: bolder;
+    text-align: left;
+  }
+  .new_user {
+    padding: 24px 26px 40px;
+    margin: 0 auto;
+  }
+  .main-field {
+  max-width: 343px;
+  margin: 0 auto;
+
+    .text-space {
+      padding: 10px 16px 8px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      line-height: 1.5;
+      font-size: 16px;
+      margin: 8px 0 0;
+      width: 100%;
+    }
+
+    .field-1 {
+      margin: 0;
+      text-align: left;
+    }
+
+    .field-user {
+      margin: 24px 0 0;
+      text-align: left;
+    }
+
+    .field-name {
+      margin: 0;
+    }
+
+    #user_birth_date_1i {
+      margin: 8px 0 0;
+      width: 76px;
+      height: 48px;
+    }
+
+    #user_birth_date_2i {
+      margin: 8px 0 0;
+      width: 76px;
+      height: 48px;
+    }
+
+    #user_birth_date_3i {
+      margin: 8px 0 0;
+      width: 76px;
+      height: 48px;
+    }
+
+    .form-require {
+      background-color: red;
+      margin: 0 0 0 8px;
+      padding: 2px 4px;
+      border-radius: 2px;
+      color: #fff;
+      font-size: 12px;
+      vertical-align: top;
+      width: 40px;
+    }
+
+  
+    #user_address_attributes_prefecture_code {
+      margin: 8px 0 0;
+      width: 76px;
+      height: 48px;
+    }
+  }
+  
+  .note {
+    margin: 8px 0 0;
+    color: #888;
+  }
+  .next {
+    background: #ea352d;
+    border: 1px solid #ea352d;
+    color: #fff;
+    width: 343px;
+    line-height: 48px;
+    margin: 24px 0 0;
+  }
+ }
+}
+
+.footer {
+  height: 220px;
+}
