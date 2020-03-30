@@ -63,16 +63,6 @@ ul {
       margin-bottom: 25px;
       padding-bottom: 15px;
     }
-    ::after {
-      content: "";
-      width: 70px;
-      height: 4px;
-      background-color: #3CCACE;
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-    }
     ul {
       text-align: center;
       display: flex;
