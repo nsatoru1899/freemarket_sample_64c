@@ -12,7 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
-    render :action => 'complete'
+    render action: 'complete'
   end
 
   # POST /resource
