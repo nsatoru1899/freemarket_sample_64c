@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :tests
 
+  devise_scope :user do 
+    post 'users/sign_up/complete' => 'users/registrations#complete' 
+   end
+
 end
