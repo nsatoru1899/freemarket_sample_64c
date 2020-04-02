@@ -1,6 +1,8 @@
 !!!
 %html
   %head
+    %script{src: "https://js.pay.jp/", type: "text/javascript"}
+    %script{type:"text/javascript"}Payjp.setPublicKey('pk_test_5368ce76b1e8ded509d2a439');
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title FreemarketSample64c
     = csrf_meta_tags

@@ -1,0 +1,49 @@
+.reg-wrapper
+  .reg-title
+    %h2 クレジットカード情報入力
+  .reg-content
+    .reg-content__inner
+      = form_tag("/cards", method: :post, id: 'reg-card-form',  name: "inputForm") do
+        = render "devise/shared/error_messages", resource: @card
+        .reg-content__inner__form
+          %label{:for => "card_number"}カード番号
+          = text_field_tag "card_number", "", class: "card-field__input", placeholder: "半角数字のみ"
+          %span.card-field__require 必須
+
+          %label :カード会社
+          = select_tag "card_company", options_for_select(["Visa", "MasterCard", "JCB", "Saison", "American Express", "Diners Club", "Discover"]), include_blank:true ,class: "card-field__input"
+          %span.card-field__require 必須
+
+        %ul.reg__card--list
+          %li.icon--visa
+            = image_tag("visa.svg", id:"icon--visa")
+          %li.icon--master
+            = image_tag("master-card.svg", id:"icon--master")
+          %li.icon--saison
+            = image_tag("saison-card.svg", id:"icon--saison")
+          %li.icon--jcb
+            = image_tag("jcb.svg", id:"icon--jcb")
+          %li.icon--americanexpress
+            = image_tag("american_express.svg", id:"icon--americanexpress")
+          %li.icon--diners
+            = image_tag("dinersclub.svg", id:"icon--diners")
+          %li.icon--discover
+            = image_tag("discover.svg", id:"icon--discover")
+
+          %label{:for => "cxc"}セキュリティコード
+          = text_field_tag "cvc", "", class: "card-field__input", placeholder: "カード背面4桁もしくは3桁の番号"
+          %span.card-field__require 必須
+
+        .card-field
+          %label.card-field__card--year-and-month 月
+          %span.card-field__require 必須
+          = select_tag "exp_month", options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]), class: "card-field__input--half"
+          %label.card-field__card--year-and-month 年
+          = select_tag "exp_year", options_for_select((2020..2030)), class: "card-field__input--half"
+
+          .card-field__add--question
+          %p.card-field__text--right--blue
+            カード裏面の番号とは？
+          
+          = submit_tag "登録する", id: "token_submit", class: "reg-card__btn", data: { disable_with: "送信中..." }
+    
