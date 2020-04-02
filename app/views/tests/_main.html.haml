@@ -10,12 +10,12 @@
         %br/
         フリマアプリです
     .main--1__btn
-      %a(href="")
+      = link_to "" do
         %img(src="" alt="")/
-      %a(href="")
+      = link_to "" do
         %img(src="" alt="")/
+
   %section.main--2
-    
     %h2 FRIMAが選ばれる3つの理由
     %ul
       %li
@@ -44,7 +44,7 @@
         %p 最大3%でお得に出品＆購入!
   %section.main--3
     .main--3__contents
-      %h2　会員数日本一位
+      %h2 会員数日本一位
       %p 
         FRIMAは、フリマアプリで最も人気。
         %br/
@@ -79,7 +79,7 @@
           %h3 新規投稿商品
       .main--5__contents--lists
         .main--5__contents--lists--list
-          %a(href="")
+          = link_to "" do
             %figure
               = image_tag ''
             .main--5__contents--lists--list__content
@@ -90,7 +90,7 @@
                   %li
                 %p (税込)
         .main--5__contents--lists--list
-          %a(href="")
+          = link_to "" do
             %figure
               = image_tag ''
             .main--5__contents--lists--list__content
@@ -101,7 +101,7 @@
                   %li
                 %p (税込)
         .main--5__contents--lists--list
-          %a(href="")
+          = link_to "" do
             %figure
               = image_tag ''
             .main--5__contents--lists--list__content
@@ -115,11 +115,21 @@
     %h2 ピックアッブランド
     .main--5__contents
       .main--5__contents--header
-        %a(href="")
+        = link_to "" do
           %h3 アーカイバ
       .main--5__contents--lists
+        = link_to "" do
+          %figure
+            = image_tag ''
+          .main--5__contents--lists--list__content
+            %h3 product3
+            .main--5__contents--lists--list__content__detail
+              %ul
+                %li 30000円
+                %li
+              %p (税込)
         .main--5__contents--lists--list
-          %a(href="")
+          = link_to "" do
             %figure
               = image_tag ''
             .main--5__contents--lists--list__content
@@ -130,18 +140,7 @@
                   %li
                 %p (税込)
         .main--5__contents--lists--list
-          %a(href="")
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product3
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 30000円
-                  %li
-                %p (税込)
-        .main--5__contents--lists--list
-          %a(href="")
+          = link_to "" do
             %figure
               = image_tag ''
             .main--5__contents--lists--list__content
