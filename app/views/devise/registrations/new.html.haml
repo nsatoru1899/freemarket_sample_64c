@@ -34,12 +34,12 @@
         .field-name
           = f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "例）太郎", class: "text-space"
         .field-user
-          = f.label :お名前カナ（全角）
+          = f.label :お名前かな（全角）
           %span.form-require 必須
           %br/
-          = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana", placeholder: "例）ヤマダ", class: "text-space"
+          = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana", placeholder: "例）やまだ", class: "text-space"
         .field-name
-          = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", placeholder: "例）タロウ", class: "text-space"
+          = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", placeholder: "例）たろう", class: "text-space"
         .field-user
           = f.label :電話番号
           %span.form-require 必須
@@ -86,4 +86,4 @@
       .actions
         = f.submit "次へ進む", class: "next"
 .footer
-  = render "footer-user"
+  = render "tests/footer"
