@@ -1,0 +1,20 @@
+// カメラアイコン-------------------------------------------------------------------------------------------------------
+.camera_icon {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  text-align: center;
+  width: 120px;
+  border-radius: 4%;
+  padding: 15px;
+  background-color: #3CCACE;
+  span {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #fff;
+  }
+  img {
+    width: 60%;
+  }
+}

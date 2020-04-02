@@ -1,0 +1,67 @@
+// ----------------------------------------------------------------------------------------------------------------------
+aside {
+  height: 359.328px;
+  width: 100vw;
+  padding: 100px 40px;
+  background-image: url('pict/bg-appBanner-pict.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.life {
+  color: #fff;
+  text-align: center;
+  h2 {
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+  }
+  p {
+    font-size: 35px;
+    text-shadow: 0 0 5px rgba(0,0,0,0.4);
+  }
+}
+// フッター--------------------------------------------------------------------------------------------------
+.footer {
+  background-color: #272727;
+  padding: 60px 0;
+  color: #fff;
+  text-align: center;
+
+  &__lists {
+    display: flex;
+    max-width: 840px;
+    margin: 0 auto;
+
+    &--list {
+      display: flex;
+      flex-direction: column;
+      width: calc( 1 / 3 * 100% );
+      margin: 0 2% 0 0;
+      h2 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0 0 20px 0;
+        font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+      }
+      a {
+        font-size: 12px;
+        line-height: 32px;
+        text-decoration: none;
+        color: #fff;
+      }
+    }
+  }
+  &__logo {
+    max-width: 160px;
+    width: 100%;
+    margin: 0 auto;
+    img {
+      width: 100%;
+      vertical-align: bottom;
+    }
+  }
+}
+p {
+  font-size: 14px;
+}
