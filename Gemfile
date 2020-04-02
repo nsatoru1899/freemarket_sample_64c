@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -70,6 +70,7 @@ gem 'active_hash' # 都道府県選択用 中村
 gem 'carrierwave' # 画像アップロードに使用 寺西
 gem 'devise' # user作成に必要 金
 gem 'fog-aws' # 外部のストレージ選択・アップロード補助のため 寺西
+gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西

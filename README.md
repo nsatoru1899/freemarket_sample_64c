@@ -162,3 +162,4 @@
 
 ### Association
 - has_many :items
+
