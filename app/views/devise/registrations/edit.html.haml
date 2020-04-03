@@ -21,7 +21,7 @@
         .field
           = f.label :password_confirmation
           %br/
-          = f.password_field :password_confirmation, autocomplete: "new-password", class: "text-space"
+          = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
         .field
           = f.label :current_password
           %br/
