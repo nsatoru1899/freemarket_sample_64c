@@ -1,6 +1,23 @@
 ---
 ja:
   activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: 確認用パスワード
+        familyname: 名前（姓）
+        firstname: 名前（名）
+        familyname_kana: 名前（姓）かな
+        firstname_kana: 名前（名）かな
+      address: 
+        postal_code: 郵便番号
+        prefecture_code: 都道府県
+        city: 市区町村
+        block: 番地
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
