@@ -45,7 +45,7 @@
         .field
           = f.label :生年月日
           %br/
-          = f.date_select :birth_date, autofocus: true, autocomplete: "birth_date"
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
         .field-detail
           = f.label :説明
           %br/
