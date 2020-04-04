@@ -120,9 +120,9 @@ $(function(){
   // 販売手数料、販売利益の計算
   $(".price-input").on("change",function(){
     var price = Number($(".price-input").val()); // 販売価格 
-    var commision = price * 0.1; // 販売手数料
-    var profit = price - commision; // 販売利益
-      $(".commision-value").text(commision);
+    var commission = price * 0.1; // 販売手数料
+    var profit = price - commission; // 販売利益
+      $(".commission-value").text(commission);
       $(".profit-value").text(profit);
     })
 });

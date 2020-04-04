@@ -39,7 +39,7 @@ $font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGoth
   border-radius: 4px;
 }
 
-@mixin commision-profit() {
+@mixin commission-profit() {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -269,15 +269,15 @@ body{
       }
     }
   }
-  &__commision{
-    @include commision-profit();
+  &__commission{
+    @include commission-profit();
     padding-bottom: 15px;
     border-bottom-width: 2px;
     border-bottom-color: $border-color;
     border-bottom-style: solid;
   }
   &__profit{
-    @include commision-profit();
+    @include commission-profit();
   }
 }
 
