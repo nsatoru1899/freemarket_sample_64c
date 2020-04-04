@@ -18,7 +18,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       render :new
       flash.now[:alert] = "データを入力し直してください"
-    end   
+    end
   end
 
   # POST /resource
