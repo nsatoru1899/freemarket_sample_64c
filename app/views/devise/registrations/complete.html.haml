@@ -1,5 +1,5 @@
 .registration-header
-  = render "header-user"
+  = render "devise/shared/header-user"
 .complete-body
   .complete-body__main
     %h2 会員情報入力
@@ -10,6 +10,6 @@
         %br/
         会員登録完了しました。
     .actions
-      = link_to "メルカリをはじめる", root_path, class: "next-complete"
+      = link_to "FURIMAをはじめる", root_path, class: "next-complete"
 .footer
   = render "tests/footer"
