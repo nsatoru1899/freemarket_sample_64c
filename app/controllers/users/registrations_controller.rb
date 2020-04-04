@@ -3,7 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
-  before_action :create, only: [:complete]
+  # before_action :create, only: [:complete]
 
   # GET /resource/sign_up
   def new
@@ -12,7 +12,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
-    render action: 'complete'
+    build_resource(sign_up_params)
+    if @user.save
+      render :complete
+    else
+      render :new
+      flash.now[:alert] = "データを入力し直してください"
+    end   
   end
 
   # POST /resource
