@@ -73,3 +73,4 @@ gem 'fog-aws' # 外部のストレージ選択・アップロード補助のた�
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西
+gem 'pry-rails'
