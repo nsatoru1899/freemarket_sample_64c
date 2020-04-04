@@ -50,7 +50,6 @@ $(function(){
   $('#drop-area').on('click', '.remove-image', function() {
     $(this).parent().remove();
     var targetIndex = $(this).parent().data('index');
-    console.log(targetIndex)
     $(`img[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
     if ($('.image-input').length == 0) $('#drop-area').append(buildFileField(fileIndex[0]));
@@ -120,9 +119,13 @@ $(function(){
   // 販売手数料、販売利益の計算
   $(".price-input").on("change",function(){
     var price = Number($(".price-input").val()); // 販売価格 
-    var commission = price * 0.1; // 販売手数料
-    var profit = price - commission; // 販売利益
-      $(".commission-value").text(commission);
-      $(".profit-value").text(profit);
+    if(price < 300){window.alert("¥300以上の金額を指定してください")}
+    else if(price > 9999999){window.alert("¥999,999,999以下の金額を指定してください")}
+    else{
+      var commission = Math.round(price * 0.1); // 販売手数料
+      var profit = price - commission; // 販売利益
+        $(".commission-value").text(commission);
+        $(".profit-value").text(profit);
+      };
     })
 });
