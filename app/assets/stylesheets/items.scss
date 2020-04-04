@@ -1,0 +1,356 @@
+$background-color: #ffffff;
+$border-color:  #F8F8F8;
+$font-color: #333333;
+$font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGothic", "メイリオ", "Meiryo", sans-serif;
+
+
+@mixin reuired-optional(){
+  margin: 0 0 0 8px;
+  padding: 2px 4px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  vertical-align: 1px;
+  width: 40px;
+}
+
+@mixin button() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 310px;
+  height: 48px;
+  margin: 0 auto;
+  margin-bottom: 24px;
+  font-size: 17px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+@mixin fields() {
+  width: 600px;
+  height: 48px;
+  font-size: 16px;
+  margin-top: 16px;
+  padding: 0 10px 0 10px;
+  background: $background-color;  
+  border: 0;
+  border:solid 1px #ccc;
+  border-radius: 4px;
+}
+
+@mixin commision-profit() {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 46px;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+@mixin fontsize-weight(){
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@mixin border() {
+  border-top-width: thin;
+  border-top-color: $border-color;
+  border-top-style: solid;  
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #f8f8f8;
+  font-family: $font-family;
+}
+
+.item-image{
+  width: 620px;
+  height: 220px;
+  padding: 40px;
+  margin: auto;
+  background: $background-color;  
+  @include border();
+  &__image{
+    .image-label{
+      @include fontsize-weight();
+    }
+    p{
+      margin:16px 0 16px 0;
+      font-size: 14px;
+    }
+    .form-image{
+      width: 620px;
+      height: 150px;
+      text-align: center;
+      font-size: 12px;
+      background-color: $border-color;
+      border: 1px dashed #CCCCCC;
+      label{
+        display: inline-block;
+        margin-top: 45px;
+        line-height: 15px;
+        .file-field-group{
+          .first-image{
+            display: none;
+          }
+        }
+      }
+    }
+  } 
+}
+
+.item-information{
+  width: 620px;
+  height: 320px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  @include border();
+  &__name{
+    height: 83px;
+    .name-label{
+      @include fontsize-weight();
+    }
+    .name-input{
+      @include fields();
+    }
+  }
+  &__detail{
+    .detail-label{
+      @include fontsize-weight();
+    }
+    .detail-input{
+      @include fields();
+      height: 160px;
+    }
+    .text-count{
+      margin-top: 16px;
+      text-align: right;
+      color: #888888;
+      font-size: 12px;
+    }
+  }
+}
+
+.item-detail{
+  width: 620px;
+  height: 360px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  border-width: thin;
+  border-color: $border-color;
+  border-style: solid;
+  p{
+    @include fontsize-weight();
+    color: #888888;
+  }
+  &__category{
+    .category-label{
+      @include fontsize-weight();
+    }
+    #item_category{
+      @include fields();
+      width: 620px;
+    }
+    #item_category_2{
+      @include fields();
+      width: 620px;
+    }
+    #item_category_3{
+      @include fields();
+      width: 620px;
+    }
+  }
+  &__brand{
+    margin-top: 60px;
+    .brand-label{
+      @include fontsize-weight();
+    }
+    .brand-input{
+      @include fields();
+    }
+  }
+  &__status{
+    margin-top: 60px;
+    .status-label{
+      @include fontsize-weight();
+    }
+    #item_status_id{
+      width: 620px;
+      height: 48px;
+      margin-top: 16px;
+      font-size: 16px;
+      background-color: $background-color;
+      border:solid 1px #ccc;
+    }
+  }
+}
+
+.shipping-information{
+  width: 620px;
+  height: 360px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  @include border();
+  p{
+    @include fontsize-weight();
+    color: #888888;
+  }
+  &__charge{
+    .charge-label{
+      @include fontsize-weight();
+    }
+    #item_charge_id{
+      @include fields();
+      width: 620px;
+    }
+  }
+  &__prefecture{
+    margin-top: 60px;
+    .prefecture-label{
+      @include fontsize-weight();
+    }
+    #item_prefecture_code{
+      @include fields();
+      width: 620px;
+    }
+  }
+  &__day{
+    margin-top: 60px;
+    .day-label{
+      @include fontsize-weight();
+    }
+    #item_day_id{
+      @include fields();
+      width: 620px;
+    }
+  }
+}
+
+.price-information{
+  width: 620px;
+  height: 230px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  @include border();
+  p{
+    font-size: 14px;
+    font-weight: 600;
+    color: #888888;
+  }
+  &__price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .label-part{
+      .price-label{
+        @include fontsize-weight();
+      }
+    }
+    .input-part{
+      span{
+        font-size: 14px;
+      }
+      .price-input{
+        @include fields();
+        width: 260px;
+        margin-top: 0;
+        text-align: right;
+        font-size: 14px;
+      }
+    }
+  }
+  &__commision{
+    @include commision-profit();
+    padding-bottom: 15px;
+    border-bottom-width: 2px;
+    border-bottom-color: $border-color;
+    border-bottom-style: solid;
+  }
+  &__profit{
+    @include commision-profit();
+  }
+}
+
+.actions{
+  width: 620px;
+  height: 120px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  &__submit{
+    .send-btn{
+      @include button();
+      color: #FFFFFF;
+      background-color: #EA352E;
+    }  
+  }
+  &__draft{
+    .draft-btn{
+      @include button();
+      background-color: #CCCCCC;
+      color: #222222;
+    }
+  }
+  &__back{
+    width: 310px;
+    height: 20px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #0095EE;
+  }
+
+}
+
+.notes{
+  width: 620px;
+  height: 50px;
+  margin: auto;
+  padding: 40px;
+  background: $background-color;  
+  p{
+    font-size: 12px;
+    color: #333333;
+  }
+}
+
+.form-require {
+  @include reuired-optional();
+  background-color: red;
+}
+
+.form-optional {
+  @include reuired-optional();
+  background-color: #BFBFBF;
+}
+
+.help{
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  margin-left: 10px;
+  font-size: 8px;
+  vertical-align: 2px;
+  line-height: 1;
+  text-align: center;
+  color: #3CCACE;
+  border: solid 1px #3CCACE;
+  border-radius: 50%;
+}
+
+.icon-camera{
+  width: 24px;
+  height: 24px;
+  color: #333333;
+}
