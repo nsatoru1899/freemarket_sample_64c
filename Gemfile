@@ -44,6 +44,7 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -73,4 +74,3 @@ gem 'fog-aws' # 外部のストレージ選択・アップロード補助のた�
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西
-gem 'pry-rails'
