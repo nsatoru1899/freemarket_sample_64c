@@ -1,5 +1,5 @@
 .registration-header
-  = render "header-user"
+  = render "devise/shared/header-user"
 .registration-body
   .registration-body__main
     %h2 会員情報入力
@@ -49,7 +49,7 @@
           = f.label :生年月日
           %span.form-require 必須
           %br/
-          = f.date_select :birth_date, autofocus: true, autocomplete: "birth_date", class: "text-space"
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
         .field-user
           = f.label :detail
           %span.form-require 任意
