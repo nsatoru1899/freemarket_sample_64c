@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   }
   root 'tests#index'
   resources :tests
-
+  resources :user_my_page do
+    collection do
+      get'user_my_page'
+    end
+  end
   devise_scope :user do
     post 'users/sign_up/complete' => 'users/registrations#complete'
   end
