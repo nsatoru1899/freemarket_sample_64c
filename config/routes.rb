@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   }
   root 'tests#index'
   resources :tests
+  resources :items, only: [:new, :create]
+  
   resources :user_my_page do
     collection do
       get'user_my_page'
