@@ -3,7 +3,7 @@ class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
 		return nil if @object.nil? || (messages = @object.errors.messages[attribute]).nil?
 
 		lis = messages.collect do |message|
-			%{<li>#{@object.errors.full_message(attribute, message)}</li>}
+			%{<li class="error-message">#{@object.errors.full_message(attribute, message)}</li>}
 		end.join
 
 		%{<ul class="error">#{lis}</ul>}.html_safe
@@ -29,9 +29,10 @@ class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
 	  super + pick_errors(attribute)
 	end
 
-	# def date_select(attribute, options={})
-    #   return super if options[:no_errors]
-    #   super + pick_errors(attribute)
-	# end
+	def date_select(attribute, options={})
+	  return super if options[:no_errors]
+	  super + pick_errors(attribute)
+	end
+	
 
 end

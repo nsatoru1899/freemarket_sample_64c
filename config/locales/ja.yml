@@ -14,6 +14,7 @@ ja:
         familyname_kana: 名前（姓）かな
         firstname_kana: 名前（名）かな
         phonenumber: 電話番号
+        birth_date: 生年月日
       address: 
         postal_code: 郵便番号
         prefecture_code: 都道府県

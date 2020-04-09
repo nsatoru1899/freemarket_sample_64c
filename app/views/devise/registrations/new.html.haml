@@ -1,4 +1,3 @@
-- console
 .registration-header
   = render "devise/shared/header-user"
 .registration-body
@@ -49,7 +48,7 @@
           = f.label :生年月日
           %span.form-require 必須
           %br/
-          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, prompt: "--", start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
         .field-user
           = f.label :detail
           %span.form-require 任意
@@ -65,7 +64,7 @@
             = f.label :都道府県
             %span.form-require 必須
             %br/
-            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
+            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", value: '選択してください'
           .field-user
             = f.label :市区町村
             %span.form-require 必須

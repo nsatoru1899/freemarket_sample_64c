@@ -109,13 +109,29 @@
 .field_with_errors{
 	display: inline;
 
+  #user_birth_date_1i {
+    outline: 0;
+	  border-color: red !important;
+  }
+
+  #user_birth_date_2i {
+    outline: 0;
+	  border-color: red !important;
+  }
+
+  #user_birth_date_3i {
+    outline: 0;
+	  border-color: red !important;
+  }
+
    .text-space {
 	 outline: 0;
 	 border-color: red !important;
    }
-  }
   
-  li {
+  }
+
+  .error-message {
     margin-top: 10px;
     color: red;
     text-align: left;
