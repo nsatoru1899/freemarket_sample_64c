@@ -45,7 +45,7 @@
     }
 
     .field-user {
-      margin: 24px 0 0;
+      margin: 30px 0 0;
       text-align: left;
     }
 
@@ -105,3 +105,18 @@
   }
  }
 }
+
+.field_with_errors{
+	display: inline;
+
+   .text-space {
+	 outline: 0;
+	 border-color: red !important;
+   }
+  }
+  
+  li {
+    margin-top: 10px;
+    color: red;
+    text-align: left;
+    }

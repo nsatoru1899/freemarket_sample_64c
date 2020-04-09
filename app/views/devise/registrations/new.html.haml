@@ -1,10 +1,10 @@
+- console
 .registration-header
   = render "devise/shared/header-user"
 .registration-body
   .registration-body__main
     %h2 会員情報入力
-    = form_for(resource, as: resource_name, url: {action: "complete"}) do |f|
-      = render "devise/shared/error_messages", resource: resource
+    = form_for(resource, as: resource_name, url: {action: "complete"}, builder: WithErrorFormBuilder) do |f|
       .main-field
         .field-1
           = f.label :ニックネーム
