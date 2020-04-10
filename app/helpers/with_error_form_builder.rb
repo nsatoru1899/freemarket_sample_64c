@@ -1,4 +1,5 @@
 class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
+
 	def pick_errors(attribute)
 		return nil if @object.nil? || (messages = @object.errors.messages[attribute]).nil?
 
@@ -33,6 +34,5 @@ class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
 	  return super if options[:no_errors]
 	  super + pick_errors(attribute)
 	end
-	
 
 end
