@@ -1,0 +1,11 @@
+.wrapper
+  = render 'tests/header'
+  .sign_out
+    .sign_out__box
+      .sign_out__box__text
+        =link_to"ログアウト", destroy_user_session_path, method: :delete
+
+
+    = render"_side_bar/side_bar"      
+  = render 'tests/footer'
+  = render 'tests/camera'

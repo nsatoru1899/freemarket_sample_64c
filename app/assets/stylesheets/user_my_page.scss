@@ -7,24 +7,24 @@ body{
       width: 1020px;
       margin: 0px auto 0;
       &__content {
-        width: 700px;
         float: right;
+        width: 700px;
         &-usericon {
-          height:200px;
           position: relative;
-          background-image: url("background3.jpg");
+          height:200px;
           padding-top: 70px;
+          background-image: url("background3.jpg");
           background-repeat: no-repeat;
           background-size: cover;
           img {
-            border-radius: 50%; 
-            margin-left: 320px;
-            height: 60px;
             width: 60px;
+            height: 60px;
+            margin-left: 320px;
+            border-radius: 50%; 
           }
           .user {
-            font-weight: bold;
             height: 30px;
+            font-weight: bold;
             text-align: center;
             a{
               color: black;
@@ -32,17 +32,17 @@ body{
           }
           .user-number {
             width: 500px;
-            font-weight: 545;
             padding-left: 290px;
+            font-weight: 545;
             .user-number-evaluation {
+              float: left;
               width:70px;
               height: 16px;
-              float: left;
             }
             .user-number-exhibitin {
+              display: inline-block
               width:70px;
               height: 16px;
-              display: inline-block
             }
           }
         }
@@ -50,14 +50,13 @@ body{
           margin: 0;
           &-active{
             display:flex;
-            font-size: 22px;
             width: 100%;
-            text-align:center;
-            background-color: white;
             height: 74px;
             line-height: 330%;
             border: none;
-            cursor: pointer;
+            background-color: white;
+            font-size: 22px;
+            text-align:center;
             &__notice{
               display: inline-block;
               width: 100%;
@@ -67,30 +66,30 @@ body{
           }
         }
         .new{
-          background-repeat: no-repeat;
           margin: 0;
           padding: 0;
+          background-repeat: no-repeat;
           .news{
             display: none;
-            height: 236px;
             width:700px;
+            height: 236px;
             background-image: image-url("mypage.yarukotolist.png");
             &-contents-image{
-              height: 200px;
               width:600px;
+              height: 200px;
               background-size: 80px;
             }
           }
           &-content{
             display: block;
             &-message{
-              border: 1px solid #eee;
-              min-height: 70px;
-              padding: 10px;
-              color:#333;
-              background-color: white;
               display: flex;
               position: relative;
+              min-height: 70px;
+              padding: 10px;
+              border: 1px solid #eee;
+              background-color: white;
+              color:#333;
               &:hover{
                 background-color: #eee;
               }
@@ -99,9 +98,9 @@ body{
                 height: 50px;
               }
               .fa.fa-chevron-right{
-                margin-right: 40px;
-                float: right;
                 position: absolute;
+                float: right;
+                margin-right: 40px;
                 top:50%;
                 right: 16px;
               }
@@ -110,18 +109,18 @@ body{
               }
             }
             &-message__all{
-              border: 0;
+              margin-bottom: 40px;
               padding: 16px;
+              border: 0;
               border-bottom: 1px solid #eee;
               background-color: white;
-              margin-bottom: 40px;
               &_buttom{
                 display:block;
                 height: 56px;
+                line-height: 56px;
                 margin: 0 auto;
                 background-color: #eee;
                 color: black;
-                line-height: 56px;
                 text-align: center;
                 &:hover{
                   background-color:#fafafa;

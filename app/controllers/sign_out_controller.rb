@@ -1,0 +1,2 @@
+class SignOutController < ApplicationController
+end

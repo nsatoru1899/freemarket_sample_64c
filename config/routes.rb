@@ -11,6 +11,11 @@ Rails.application.routes.draw do
       get'user_my_page'
     end
   end
+    resources :sign_out do
+      collection do
+        get'sign_out'
+      end
+  end
   devise_scope :user do
     post 'users/sign_up/complete' => 'users/registrations#complete'
   end
