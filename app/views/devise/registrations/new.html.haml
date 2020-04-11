@@ -48,7 +48,7 @@
           = f.label :生年月日
           %span.form-require 必須
           %br/
-          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, prompt: "--", start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
+          = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, prompt: "--", start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月') + '日'
         .field-user
           = f.label :detail
           %span.form-require 任意
@@ -59,7 +59,7 @@
             = f.label :郵便番号
             %span.form-require 必須
             %br/
-            = f.text_field :postal_code, class: "text-space"
+            = f.text_field :postal_code, class: "text-space", placeholder: "（ハイフン）不要"
           .field-user
             = f.label :都道府県
             %span.form-require 必須
