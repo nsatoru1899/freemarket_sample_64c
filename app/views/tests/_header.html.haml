@@ -22,7 +22,7 @@
       %ul.header__contents__nav--right
         - if user_signed_in?
           %li.header__contents__nav--right--login 
-            = link_to "マイページ", user_my_page_user_my_page_index_path
+            = link_to "マイページ", user_my_page_users_path
           %li.header__contents__nav--right--new 
             = link_to "ログアウト", destroy_user_session_path, method: :delete
         - else

@@ -5,13 +5,9 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :tests
   resources :items, only: [:new, :create]
-  resources :user_my_page do
+  resources :users do
     collection do
       get 'user_my_page'
-    end
-  end
-  resources :sign_out do
-    collection do
       get 'sign_out'
     end
   end

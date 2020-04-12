@@ -5,9 +5,9 @@
       .container-mypage__content-usericon
         .container-mypage__usericon-member
           %figure
-            = image_tag "member_photo_noimage_thumb.png"
+            = image_tag current_user.avatar
           .user
-            てぃも
+            = current_user.nickname
           .user-number
             .user-number-evaluation
               評価数 0
