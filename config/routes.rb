@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   }
   root 'tests#index'
   resources :tests
-  resources :cards , only: [:new,:create]
-  resources :items, only: [:new, :create]
+  resources :cards, only: %i[new create]
+  resources :items, only: %i[new create]
 
   devise_scope :user do
     post 'users/sign_up/complete' => 'users/registrations#complete'
