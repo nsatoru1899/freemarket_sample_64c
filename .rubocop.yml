@@ -22,7 +22,7 @@ Style/StringLiterals:
   Enabled: false
 
 # "Line is too long"を無効
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 #'frozen_string_literal: true'を無効
