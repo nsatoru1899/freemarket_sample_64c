@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -44,7 +46,6 @@ group :development do
   gem 'listen', '~> 3.0.5'
   gem 'web-console', '>= 3.3.0'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
@@ -64,6 +65,8 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
@@ -74,3 +77,4 @@ gem 'fog-aws' # 外部のストレージ選択・アップロード補助のた�
 gem 'font-awesome-rails'
 gem 'haml-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西
+gem 'payjp'
