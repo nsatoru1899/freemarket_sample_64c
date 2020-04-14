@@ -32,6 +32,15 @@ ActiveRecord::Schema.define(version: 20200327113234) do
     t.index ["item_id"], name: "index_brands_on_item_id", using: :btree
   end
 
+  create_table "cards", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id",     null: false
+    t.string   "card_id",     null: false
+    t.string   "customer_id", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_cards_on_user_id", using: :btree
+  end
+
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -92,6 +101,7 @@ ActiveRecord::Schema.define(version: 20200327113234) do
 
   add_foreign_key "addresses", "users"
   add_foreign_key "brands", "items"
+  add_foreign_key "cards", "users"
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
