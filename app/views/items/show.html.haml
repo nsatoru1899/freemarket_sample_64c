@@ -1,0 +1,109 @@
+= render 'devise/shared/header-user'
+%section
+  %h1.item-name
+    = @item.name
+  .item-main_box
+    .item-main_box__photo-box
+      .item-main_box__photo-box__top-photo
+        .photo-top
+          = link_to "#{@item.images[0].src}", target: 'blank' do
+            = image_tag @item.images[0].src, size: '300x300'
+        .photo-others
+          - @item.images.drop(1).each do |image|
+            = link_to "#{image.src}", target: 'blank' do
+              = image_tag image.src, size: '30x30'
+      .item-main_box__photo-box__under-box
+    %table.item-main_box__detail-box
+      %tbody
+        %tr
+          %th 出品者
+          %td
+            = @item.user.nickname
+        %tr
+          %th カテゴリー
+          %td
+            = @item.category.name
+        %tr
+          %th ブランド
+          %td
+            = @item.brand.name
+        %tr
+          %th 商品の状態
+          %td
+            = @item.status.name
+        %tr
+          %th 配送料の負担
+          %td
+            = @item.charge.name
+        %tr
+          %th 配送元地域
+          %td
+            = @item.prefecture.name
+        %tr
+          %th 発送日の目安
+          %td
+            = @item.day.name
+  .item-prices
+    %span.prices
+      ¥
+      = @item.price
+    %span.tax (税込)
+    %span.option 送料込み
+  -if user_signed_in? && current_user.id == @item.user_id
+    = link_to edit_item_path(@item.id), class: "purchase_btn" do
+      編集する
+  -else
+    = link_to "", class: "purchase_btn" do
+      購入画面に進む
+  .item-detail_text
+    %p
+      = @item.detail
+  .item-under_box
+  .item-edit
+.comment-box
+  .comment-box__contents
+    .comment-box__contents__content
+      %form(action="")
+        %p
+          相手のことを考え丁寧なコメントを心がけましょう。不快な言葉遣いなどは利用制限や退会処分となることがあります。
+        %textarea
+        %button
+          %span コメントする
+.icon-box
+
+
+.item-boxes 
+  %section.item-boxes__item-box.clearfix
+    %h2.item-boxes__item-box__head
+      = link_to "" do
+        #{@item.user.nickname}さんのその他の出品
+    .item-boxes__item-box__contents.clearfix
+      - @user_items.each do |item|
+        %section.item-boxes__item-box__contents__content
+          = link_to "" do
+            %figure
+              = image_tag item.images[0].src
+            .text
+              %h3
+                #{item.name}
+              .text__under
+                .text__under__price
+                  #{item.price}円
+.item-boxes 
+  %section.item-boxes__item-box.clearfix
+    %h2.item-boxes__item-box__head
+      = link_to "" do
+        #{@item.category.name} その他の出品
+    .item-boxes__item-box__contents.clearfix
+      - @category_items.each do |item|
+        %section.item-boxes__item-box__contents__content
+          = link_to "" do
+            %figure
+              = image_tag item.images[0].src
+            .text
+              %h3
+                #{item.name}
+              .text__under
+                .text__under__price
+                  #{item.price}円
+= render 'share/footer'
