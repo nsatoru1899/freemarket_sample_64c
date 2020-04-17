@@ -88,7 +88,6 @@
                 .main--5__contents--lists--list__content__detail
                   %ul
                     %li #{item.price}円
-                    %li
                   %p (税込)
                   =item.buyer
   %section.main--5
@@ -98,7 +97,7 @@
         = link_to "" do
           %h3 アーカイバ
       .main--5__contents--lists
-        - @items.all.each do |item|
+        - @items.each do |item|
           .main--5__contents--lists--list
             = link_to "" do
               %figure
@@ -108,5 +107,4 @@
                 .main--5__contents--lists--list__content__detail
                   %ul
                     %li #{item.price}円
-                    %li
                   %p (税込)

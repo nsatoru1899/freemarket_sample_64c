@@ -1,7 +1,5 @@
 class TestsController < ApplicationController
   def index
-    @tests = Test.all
-    @test = Test.new
     @items = Item.where('buyer IS NULL').order("id DESC").limit(3)
   end
 
