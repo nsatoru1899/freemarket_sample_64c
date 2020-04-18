@@ -3,13 +3,12 @@
 .complete-body
   .complete-body__main
     %h2 会員情報入力
-    = render "devise/shared/error_messages", resource: resource 
     .complete-body__main-
       .note
         ありがとうございます。
         %br/
         会員登録完了しました。
-    .actions
+    .actions__complete
       = link_to "FURIMAをはじめる", root_path, class: "next-complete"
 .footer
-  = render "tests/footer"
+  = render "shared/footer"

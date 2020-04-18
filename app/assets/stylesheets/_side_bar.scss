@@ -1,0 +1,49 @@
+.l-side {
+  width: 280px;
+  margin: 0 40px 0 0;
+  &-bar {
+    margin: 0;
+    background-repeat: no-repeat;
+    &-list {
+      display: block;
+      width: 280px;
+      margin: 0 0 1em 0;
+      &-item {
+        display: block;
+        position: relative;
+        height: 48px;
+        line-height: 48px;
+        padding: 0 16px;
+        border-top: 1px solid #eee;
+        background: white;
+        color: black;
+        font-size: 14px;
+        &:hover {
+          background-color: #eee;
+        }
+        &:hover .fa.fa-chevron-right {
+          transform: translateX(5px);
+          transition: 0.3s;
+          color: black;
+        }
+        .fa.fa-chevron-right {
+          float: right;
+          line-height: 48px;
+          color:#ccc;
+        }
+        a {
+          display: block;
+		      position: absolute;
+		      width: 100%;
+          height: 100%;
+          line-height: 48px;
+          padding: 0 16px;
+          color: black;
+          text-decoration: none;
+		      top: 0;
+		      left: 0;
+        }
+      }      
+    }
+  }
+}

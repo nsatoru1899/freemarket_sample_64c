@@ -94,7 +94,7 @@
     margin: 8px 0 0;
     color: #888;
   }
-  .next {
+  .next-new {
     margin: 24px 0 0;
     border: 1px solid #3CCACE;
     color: #fff;
@@ -126,17 +126,14 @@
 
    .text-space {
 	 outline: 0;
-	 border-color: red !important;
+   border-color: red !important;
    }
-  
-  }
 
-  #user_address_attributes_prefecture_code {
+   #user_address_attributes_prefecture_code {
     outline: 0;
 	  border-color: red !important;
   }
-
-
+}
   .error-message {
     margin-top: 10px;
     color: red;

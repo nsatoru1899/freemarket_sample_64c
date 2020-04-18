@@ -1,0 +1,2 @@
+module SideBarHelper
+end

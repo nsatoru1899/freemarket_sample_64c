@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200327113234) do
+ActiveRecord::Schema.define(version: 20200412042204) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",         null: false
@@ -57,19 +57,19 @@ ActiveRecord::Schema.define(version: 20200327113234) do
   end
 
   create_table "items", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name",                          null: false
-    t.text     "detail",          limit: 65535, null: false
-    t.integer  "price",                         null: false
+    t.string   "name",                        null: false
+    t.text     "detail",        limit: 65535, null: false
+    t.integer  "price",                       null: false
     t.integer  "brand_id"
-    t.integer  "status_id",                     null: false
-    t.integer  "charge_id",                     null: false
-    t.integer  "prefecture_code",               null: false
-    t.integer  "day_id",                        null: false
-    t.integer  "category_id",                   null: false
-    t.integer  "seller",                        null: false
+    t.integer  "status_id",                   null: false
+    t.integer  "charge_id",                   null: false
+    t.integer  "day_id",                      null: false
+    t.integer  "category_id",                 null: false
+    t.integer  "seller",                      null: false
     t.integer  "buyer"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "prefecture_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
   end
@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20200327113234) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
