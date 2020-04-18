@@ -1,0 +1,123 @@
+@mixin fields() {
+  width: 100%;
+  height: 48px;
+  font-size: 16px;
+  margin-top: 8px;
+  padding: 0 10px 0 10px;
+  border: 0;
+  border:solid 1px #ccc;
+  border-radius: 4px;
+}
+
+.reg-wrapper{
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  width: 700px;
+  max-width: 343px;
+}
+
+.reg-card-form{
+  padding: 24px 16px 40px;
+}
+
+.reg-title{
+  padding: 12px 4%;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 18px;
+  text-align: center;
+}
+
+.reg-content{
+  max-width: 343px;
+}
+
+label{
+  margin: 8px 0 0 0;
+  font-weight: 600;
+}
+
+.card-field{
+  margin: 8px 0 0 0;
+
+  &__select-wrapper{
+    width: calc(50% - 3px);
+    display: inline-block;
+    margin: 8px 0 0 0;
+  }
+
+  &__add--question{
+    margin: 8px 0 24px 0;
+    text-align: right;
+  }
+
+  &__input{
+    @include fields;
+    margin: 8px 0 0 0;
+    &--half{
+      width: calc(100% - 38px);
+      height: 48px;
+      margin: 0 8px 0 0;
+      font-size: 16px;
+      color: #333333;
+      line-height: 16px;
+      background-color: #ffffff;
+      padding: 0 10px 0 10px;
+      border: 0;
+      border:solid 1px #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+        }
+  }
+
+  &__require{
+    width: 40px;
+    border-radius: 2px;
+    padding: 2px 4px;
+    background-color: #3CCACE;
+    color: #fff;
+    font-size: 12px;
+    vertical-align: top;
+  }
+
+  &__add--question{
+    color: #0099e8;
+
+    &__icon{
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #0099e8;
+      color: #fff;
+      line-height: 14px;
+      font-size: 12px;
+      text-align: center;
+      vertical-align: top;
+    }
+
+  }
+}
+
+
+ul.reg__card--list{
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: 8px 0 24px 0; 
+}
+
+img.icon{
+  height: 20px;
+  width: auto;
+}
+
+
+
+.reg-card__btn{
+display: block;
+width: 100%;
+margin: 24px 0 0 0;
+line-height: 48px;
+background-color: #3CCACE;
+color: #ffffff;
+cursor: pointer;
+}
