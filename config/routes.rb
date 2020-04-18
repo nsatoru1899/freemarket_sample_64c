@@ -6,6 +6,13 @@ Rails.application.routes.draw do
   resources :tests
   resources :cards, only: %i[new create]
   resources :items, only: %i[new create show edit]
+  resources :users do
+    collection do
+      get 'user_my_page'
+      get 'sign_out'
+    end
+  end
+
 
   devise_scope :user do
     post 'users/sign_up/complete' => 'users/registrations#complete'

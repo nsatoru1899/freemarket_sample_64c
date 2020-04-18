@@ -1,0 +1,79 @@
+.wrapper
+  = render 'shared/header'
+  .container-mypage
+    .container-mypage__content
+      .container-mypage__content-usericon
+        .container-mypage__usericon-member
+          %figure
+            = image_tag current_user.avatar
+          .user
+            = current_user.nickname
+          .user-number
+            .user-number-evaluation
+              評価数 0
+            .user-number-exhibition
+              出品数 0
+
+
+      
+      .container-mypage__news
+        %dev.news-active
+          .news-active__notice
+            お知らせ
+          
+
+      .new
+        .news
+          .new-contents-image
+        .new-content
+          .new-content-message
+            %figure
+              = image_tag "icon_brand.png"
+            .new-content-message__text  
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "icon_brand.png"
+            .new-content-message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "icon_brand.png"
+            .new-content-message__text
+              事務局から個別メッセージ「ログイン通知」
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "icon_brand.png"
+            .new-content-message__text
+              最大P1,000がもらえるキャンペーンが開催中
+            %i.fa.fa-chevron-right
+          .new-content-message
+            %figure
+              = image_tag "icon_brand.png"
+            .new-content-message__text
+              友達を招待したら必ずポイントがもらえるキャンペーン開催中！
+            %i.fa.fa-chevron-right
+
+        .new-content-message__all 
+          .new-content-message__all_buttom
+            一覧を見る
+
+        .content-buy
+          .content-buy-head
+            購入した商品
+          .content-buy
+            .content-buy-new
+              .content-buy-new__latest
+                取引中
+          .list-content-transaction
+            - if @products.blank?
+              .listing-buy
+                = image_tag "logo.png" , class: "listing-buy-completed"
+            %ul.list-content-transaction-active__now
+
+    = render"users/side_bar"      
+  = render 'shared/footer'
+  = render 'shared/camera'

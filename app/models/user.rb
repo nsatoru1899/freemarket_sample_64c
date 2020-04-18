@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, password_length: 7..128
-
   has_many :items
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -19,6 +18,7 @@ class User < ApplicationRecord
   validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
   validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
 
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -31,5 +31,7 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
+  mount_uploader :avatar, AvatarUploader
 
 end
