@@ -3,7 +3,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, password_length: 7..128
-
   has_many :items
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -18,4 +17,5 @@ class User < ApplicationRecord
   validates :firstname, presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: "全角のみで入力してください" }
   validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
   validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
+  mount_uploader :avatar, AvatarUploader
 end
