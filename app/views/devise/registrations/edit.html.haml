@@ -5,7 +5,6 @@
     %h2
       登録情報編集
     = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
-      = render "devise/shared/error_messages", resource: resource
       .main-field
         .field-1
           = f.label :メールアドレス
@@ -18,11 +17,11 @@
           = f.label :password
           %br/
           = f.password_field :password, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
-        .field
+        .field__password
           = f.label :password_confirmation
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
-        .field
+        .field__password
           = f.label :current_password
           %br/
           = f.password_field :current_password, autocomplete: "current-password", class: "text-space"
@@ -71,8 +70,8 @@
             = f.label :建物
             %br/
             = f.text_field :building, class: "text-space"
-        .actions
-          = f.submit "更新する", class: "update"
+        .actions__edit
+          = f.submit "更新する", class: "next-edit"
     %p
       #{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete, class: "delete-btn"}
     = link_to "トップページに戻る", :back, class: "back"
