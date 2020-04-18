@@ -31,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # PUT /resource
+  # GET /resource/update
   # def update
   #   super
   # end
@@ -71,4 +71,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+    
+  end
+
 end
