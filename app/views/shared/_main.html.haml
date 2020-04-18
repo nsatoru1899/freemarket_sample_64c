@@ -78,39 +78,18 @@
         %a(href="")
           %h3 新規投稿商品
       .main--5__contents--lists
-        .main--5__contents--lists--list
-          = link_to "" do
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product3
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 30000円
-                  %li
-                %p (税込)
-        .main--5__contents--lists--list
-          = link_to "" do
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product2
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 20000円
-                  %li
-                %p (税込)
-        .main--5__contents--lists--list
-          = link_to "" do
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product1
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 10000円
-                  %li
-                %p (税込)
+        - @items.all.each do |item|
+          .main--5__contents--lists--list
+            = link_to "" do
+              %figure
+                = image_tag ''
+              .main--5__contents--lists--list__content
+                %h3 #{item.name}
+                .main--5__contents--lists--list__content__detail
+                  %ul
+                    %li #{item.price}円
+                  %p (税込)
+                  =item.buyer
   %section.main--5
     %h2 ピックアッブランド
     .main--5__contents
@@ -118,35 +97,14 @@
         = link_to "" do
           %h3 アーカイバ
       .main--5__contents--lists
-        = link_to "" do
-          %figure
-            = image_tag ''
-          .main--5__contents--lists--list__content
-            %h3 product3
-            .main--5__contents--lists--list__content__detail
-              %ul
-                %li 30000円
-                %li
-              %p (税込)
-        .main--5__contents--lists--list
-          = link_to "" do
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product3
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 30000円
-                  %li
-                %p (税込)
-        .main--5__contents--lists--list
-          = link_to "" do
-            %figure
-              = image_tag ''
-            .main--5__contents--lists--list__content
-              %h3 product3
-              .main--5__contents--lists--list__content__detail
-                %ul
-                  %li 30000円
-                  %li
-                %p (税込)
+        - @items.each do |item|
+          .main--5__contents--lists--list
+            = link_to "" do
+              %figure
+                = image_tag ''
+              .main--5__contents--lists--list__content
+                %h3 #{item.name}
+                .main--5__contents--lists--list__content__detail
+                  %ul
+                    %li #{item.price}円
+                  %p (税込)

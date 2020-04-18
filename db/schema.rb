@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.string   "firstname",                                         null: false
     t.string   "familyname_kana",                                   null: false
     t.string   "firstname_kana",                                    null: false
-    t.integer  "phonenumber",                                       null: false
+    t.integer  "phonenumber"
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
     t.string   "email",                                default: "", null: false
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "avatar"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "addresses", "users"
