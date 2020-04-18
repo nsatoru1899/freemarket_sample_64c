@@ -22,7 +22,9 @@ section {
       min-height: 375px;
       position: relative;
       margin: 0 auto;
-      background-color: red;
+      .photo-others{
+        margin-top: 30px;
+      }
     }
     &__detail-box {
       float: right;

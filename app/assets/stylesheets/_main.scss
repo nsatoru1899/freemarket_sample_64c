@@ -24,7 +24,7 @@ ul {
     height: 560px;
     width: 100%;
     padding: 0 60px;
-    background-image: url('pict/bg-mainVisual-pict_pc.jpg');
+    background-image: image-url('pict/bg-mainVisual-pict_pc.jpg');
     background-size: cover;
     background-position: top center;
     &__content {
@@ -54,6 +54,7 @@ ul {
   // 2--------------------------------------------------------------------------------------------------
   &--2 {
     padding: 60px 20px;
+    width: 1440px;
     h2 {
       text-align: center;
       position: relative;
@@ -67,7 +68,7 @@ ul {
       text-align: center;
       display: flex;
       max-width: 1020px;
-      width: 100%;
+      width: 1020px;
       margin: 0 auto;
       li {
         text-align: left;
@@ -94,7 +95,7 @@ ul {
           }
           img {
             vertical-align: bottom;
-            width: 100%;
+            width: 289px;
           }
         }
         h3 {
@@ -119,7 +120,8 @@ ul {
     display: flex;
     align-items: center;
     height: 400px;
-    background-image: url('pict/bg-topMiddleDl-pict.jpg');
+    background-image: image-url('pict/bg-topMiddleDl-pict.jpg');
+    width: 1440px;
     background-size: cover;
     &__contents {
       text-align: left;
@@ -144,6 +146,7 @@ ul {
   &--4 {
     padding: 60px 100px;
     background-color: #fff;
+    width: 1440px;
     h2 {
       position: relative;
       text-align: center;
@@ -204,6 +207,7 @@ ul {
     padding: 80px;
     background-color: #f8f8f8;
     height: 100%;
+    width: 1440px;
     h2 {
       text-align: center;
       font-size: 28px;
