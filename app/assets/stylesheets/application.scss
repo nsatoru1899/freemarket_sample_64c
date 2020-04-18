@@ -1,10 +1,12 @@
 @import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "header-user";
 @import "header";
 @import "main";
 @import "footer";
 @import "sign-in";
-@import "card";
+@import "card-new";
 @import "colors";
 @import "flash";
 @import "camera";
@@ -13,3 +15,4 @@
 @import "complete";
 @import "edit";
 @import "items";
+@import "card-show";
