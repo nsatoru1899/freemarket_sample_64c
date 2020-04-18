@@ -65,14 +65,13 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.integer  "charge_id",                   null: false
     t.integer  "day_id",                      null: false
     t.integer  "category_id",                 null: false
+    t.integer  "seller",                      null: false
     t.integer  "buyer"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "user_id"
     t.integer  "prefecture_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
-    t.index ["user_id"], name: "index_items_on_user_id", using: :btree
   end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -88,7 +87,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.string   "firstname",                                         null: false
     t.string   "familyname_kana",                                   null: false
     t.string   "firstname_kana",                                    null: false
-    t.string   "phonenumber"
+    t.integer  "phonenumber"
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
     t.string   "email",                                default: "", null: false
@@ -98,6 +97,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
+    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -108,5 +108,4 @@ ActiveRecord::Schema.define(version: 20200412042204) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
-  add_foreign_key "items", "users"
 end
