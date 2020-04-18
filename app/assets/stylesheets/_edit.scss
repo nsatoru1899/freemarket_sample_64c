@@ -40,7 +40,11 @@
 	  	margin: 30px 0 0;
 	  	text-align: left;
 	  }
-  
+	  
+	  .field__password {
+		margin: 30px 0 0;
+		text-align: left;
+	  }
 	  .field-name {
 	  	margin: 30px 0 0;
 	  	text-align: left;
@@ -85,17 +89,14 @@
 	  	height: 48px;
 	  }
 	  
-	  .actions {
-        margin: 30px 0 0;
-  
-	    .update {
-	  	  border: 1px solid #3CCACE;
-	  	  color: #fff;
-	  	  width: 343px;
-	  	  line-height: 48px;
-	  	  margin: 24px 0 0;
-	  	  background: #3CCACE;
-	    }
+	  .next-edit {
+		margin: 50px 0 0;
+		border: 1px solid #3CCACE;
+		color: #fff;
+		width: 343px;
+		line-height: 48px;
+		background: #3CCACE;
+		cursor: pointer;
 	  }
     }
   }
