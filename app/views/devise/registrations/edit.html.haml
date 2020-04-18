@@ -4,7 +4,7 @@
   .edit-body__main  
     %h2
       登録情報編集
-    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: WithErrorFormBuilder, html: { method: :put }) do |f|
       .main-field
         .field-1
           = f.label :メールアドレス
@@ -21,10 +21,6 @@
           = f.label :password_confirmation
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
-        .field__password
-          = f.label :current_password
-          %br/
-          = f.password_field :current_password, autocomplete: "current-password", class: "text-space"
         .field-name
           = f.label :お名前（全角）
           %br/
