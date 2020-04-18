@@ -4,7 +4,6 @@
   .reg-content
     .reg-content__inner
       = form_tag("/cards", method: :post, id: 'inputForm',  name: "inputForm", class: "reg-card-form") do
-        = render "devise/shared/error_messages", resource: @card
         .reg-content__inner__form
           %label{:for => "card_number"}カード番号
           %span.card-field__require 必須
