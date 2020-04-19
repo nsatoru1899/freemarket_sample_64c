@@ -74,7 +74,7 @@ gem 'active_hash' # 都道府県選択用 中村
 gem 'carrierwave' # 画像アップロードに使用 寺西
 gem 'devise' # user作成に必要 金
 gem 'fog-aws' # 外部のストレージ選択・アップロード補助のため 寺西
-gem 'font-awesome-sass' #iconの使用のため
+gem 'font-awesome-sass' # iconの使用のため
 gem 'haml-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西
 gem 'payjp'

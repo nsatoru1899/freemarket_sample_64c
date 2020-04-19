@@ -1,7 +1,8 @@
 class CardsController < ApplicationController
-# Payjpの利用、APIキーの設定
-require "payjp"
 before_action :set_card, except: [:create]
+  # Payjpの利用、APIキーの設定
+  require "payjp"
+  before_action :set_card, except: [:create]
 
   # カードを既に登録していたらトップページに遷移
   def new
@@ -28,7 +29,7 @@ before_action :set_card, except: [:create]
         redirect_to root_path
       else
         redirect_to action: "new"
-      end      
+      end
     end
   end
 
@@ -37,35 +38,32 @@ before_action :set_card, except: [:create]
     if @card.blank?
       render :show
     else
-    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-    customer = Payjp::Customer.retrieve(@card.customer_id)
-    # Payjpのcustomerオブジェクトのカードオブジェクトを抽出する
-    @card = customer.cards.retrieve(@card.card_id)
-    # 登録しているカード会社のブランドアイコンを表示する
-    @card_brand = @card.brand      
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      # Payjpのcustomerオブジェクトのカードオブジェクトを抽出する
+      @card = customer.cards.retrieve(@card.card_id)
+      # 登録しているカード会社のブランドアイコンを表示する
+      @card_brand = @card.brand
 
-    case @card_brand
+      case @card_brand
 
-    when "Visa"
-      @card_src = "visa.svg"
-    when "JCB"
-      @card_src = "jcb.svg"
-    when "MasterCard"
-      @card_src = "master-card.svg"
-    when "American Express"
-      @card_src = "american_express.svg"
-    when "Diners Club"
-      @card_src = "dinersclub.svg"
-    when "Discover"
-      @card_src = "discover.svg"
-    end
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
+  end
   end
 
-
-  end
-
-  def destroy #PayjpのサーバーとDBの情報の削除
-
+  def destroy # PayjpのサーバーとDBの情報の削除
     if @card.blank?
       render :show
     else
@@ -76,10 +74,10 @@ before_action :set_card, except: [:create]
 
     if @card.destroy
       customer.delete
-      redirect_to action: "show"
     else
       redirect_to action: "show"
     end
+    redirect_to action: "show"
   end
 
   private
