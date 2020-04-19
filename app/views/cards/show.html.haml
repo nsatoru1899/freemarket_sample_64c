@@ -2,20 +2,20 @@
 
 .card-show-wrappaer
   %h2.card-show-head 支払い方法
-  .card-show-inner
+
   - if @card.blank?
-    %h3.card-show-list クレジットカード一覧
-    = link_to new_card_path, class: "add-card-btn" do
-      = icon('fas', 'credit-card',  class: "add-card-btn__icon") 
-      %span カードを追加する
+    .card-show-inner
+      %h3.card-show-list クレジットカード一覧
+      = link_to new_card_path, class: "add-card-btn" do
+        = icon('fas', 'credit-card',  class: "add-card-btn__icon") 
+        %span カードを追加する
 
   - else
-
-    %h3.card-show-list クレジットカード一覧
     .card-show-list__content
-      = form_tag(card_path, method: :post, id: 'charge-form', name: "inputForm") do
+      %h3.card-show-list クレジットカード一覧    
+      = form_tag(card_path, method: :delete, class: "card-show-list__content__form", id: 'charge-form', name: "inputForm") do
         %figure
-          = image_tag "#{@card_src}", width: '26', height: '20', alt: @card_brand, id: "card_image"
+          = image_tag "#{@card_src}", width: '49', height: '15', alt: @card_brand, id: "card_image"
         .set-payment
           = "**** **** **** " + "#{@card.last4}"
         .set-payment
@@ -26,7 +26,5 @@
         %button.payment-remove{type: "submit"}
           削除する    
       
-
-    
 
 = render 'shared/footer' 
