@@ -33,7 +33,6 @@ class CardsController < ApplicationController
   end
 
   def show
-    # @card = Card.where(user_id: current_user.id).first
     if @card.blank?
       render :show
     else
@@ -62,7 +61,8 @@ class CardsController < ApplicationController
   end
   end
 
-  def destroy # PayjpのサーバーとDBの情報の削除
+  # PayjpのサーバーとDBの情報の削除
+  def destroy 
     if @card.blank?
       render :show
     else
