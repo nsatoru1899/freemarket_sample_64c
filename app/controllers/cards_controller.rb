@@ -1,5 +1,4 @@
 class CardsController < ApplicationController
-before_action :set_card, except: [:create]
   # Payjpの利用、APIキーの設定
   require "payjp"
   before_action :set_card, except: [:create]
