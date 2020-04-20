@@ -14,10 +14,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def complete
     build_resource(sign_up_params)
     if @user.save
+      sign_in @user
       render :complete
     else
       render :new
-      flash.now[:alert] = "データを入力し直してください"
     end
   end
 
