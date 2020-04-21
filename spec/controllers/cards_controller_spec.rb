@@ -22,6 +22,18 @@ RSpec.describe CardsController, type: :controller do
     end
   end
 
+  describe 'GET #show' do
+    describe 'カード登録が無い場合' do
+      before do
+        sign_in user
+      end
+      it "@cardに値が入っていない状態でもshow.html.hamlに遷移する" do
+        get :show, params: { id: user }
+        expect(response).to render_template :show
+      end      
+    end
+  end
+
   describe 'POST #create' do
     describe 'GET #new' do
       before do
@@ -33,4 +45,29 @@ RSpec.describe CardsController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE #destroy' do
+    describe 'GET #users/new' do
+      before do
+        @card = create(:card)
+      end
+      it "未ログインだとログイン画面に遷移する" do
+        delete :destroy, params: { id: @card.id }
+        expect(response).to redirect_to "/users/sign_in" 
+      end
+    end
+
+    describe 'redirect_to :show' do
+      before do
+        sign_in user
+        @card = create(:card, user:user)
+        customer = double("Payjp::Customer")
+        allow(Payjp::Customer).to receive(:retrieve).and_return(@card)
+      end
+      it "@cardのデータが登録できたらshow.html.hamlに遷移する" do
+        delete :destroy, params: { id: @card.id }
+        expect(response).to redirect_to card_path
+      end
+    end
+  end 
 end
