@@ -1,7 +1,8 @@
 class CardsController < ApplicationController
   # Payjpの利用、APIキーの設定
   require "payjp"
-  before_action :set_card, except: [:create]
+before_action :authenticate_user!
+before_action :set_card, except: [:create]
 
   # カードを既に登録していたらトップページに遷移
   def new
@@ -58,25 +59,21 @@ class CardsController < ApplicationController
       when "Discover"
         @card_src = "discover.svg"
       end
-  end
+    end
   end
 
   # PayjpのサーバーとDBの情報の削除
-  def destroy 
-    if @card.blank?
-      render :show
-    else
+  def destroy
       Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
       # Payjpのcustomerオブジェクトを取得。引数にPayjpのcutomer_idトークンを持たせる
       customer = Payjp::Customer.retrieve(@card.customer_id)
-    end
 
     if @card.destroy
       customer.delete
     else
       redirect_to action: "show"
     end
-    redirect_to action: "show"
+      redirect_to action: "show"
   end
 
   private
@@ -84,5 +81,4 @@ class CardsController < ApplicationController
   def set_card
     @card = Card.where(user_id: current_user.id).first
   end
-
 end
