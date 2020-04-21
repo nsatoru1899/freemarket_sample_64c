@@ -15,7 +15,7 @@
 |firstname|string| null: false|
 |familyname_kana|string| null: false|
 |firstname_kana|string| null: false|
-|phonenumber|integer| null: false, unique: true|
+|phonenumber|string| null: false, unique: true|
 |birth_date|date| null: false|
 |detail|text|null: true|
 
@@ -162,3 +162,4 @@
 
 ### Association
 - has_many :items
+

@@ -1,0 +1,14 @@
+.registration-header
+  = render "devise/shared/header-user"
+.complete-body
+  .complete-body__main
+    %h2 会員情報入力
+    .complete-body__main-
+      .note
+        ありがとうございます。
+        %br/
+        会員登録完了しました。
+    .actions__complete
+      = link_to "FURIMAをはじめる", root_path, class: "next-complete"
+.footer
+  = render "shared/footer"

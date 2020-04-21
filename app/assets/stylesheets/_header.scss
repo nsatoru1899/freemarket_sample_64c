@@ -1,0 +1,85 @@
+// ヘッダー--------------------------------------------------------------------------------------------------------------
+.header {
+  height: 97.5469px;
+  padding: 0 60px;
+  &__contents {
+    max-width: 1040px;
+    width: 100%;
+    min-height: 82px;
+    margin: 0 auto;
+    padding: 15px 0 0;
+    &__searches {
+      display: flex;
+      text-align: center;
+      position: relative;
+      &--search-logo {
+        padding-bottom: 10px;
+        margin-right: 30px;
+        border-radius: 4px;
+        a {
+          width: 140px;
+          display: block;
+          img {
+            width: 100%;
+            vertical-align: bottom;
+          }
+        }
+      }
+      &--search {
+        margin-left: auto;
+        width: 100%;
+        form {
+          display: flex;
+          width: 100%;
+          margin-bottom: 5px;
+          input {
+            width: calc( 100% - 26px );
+            height: 36px;
+            padding: 0 0 0 5px;
+          }
+          button {
+            width: 36px;
+            padding: 8px;
+            background-color: #3CCACE;
+            img {
+              width: 100%;
+              vertical-align: bottom;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    
+    &__nav {
+      display: flex;
+      margin-bottom: 10px;
+      font-size: 14px;
+      a {
+        color: #333;
+        line-height: 32px;
+        padding-right: 30px;
+        text-decoration: none;
+      }
+      &--left {
+        display: flex;
+        position: relative;
+        &--category {
+          text-decoration: none;
+          padding: 0;
+          line-height: 38px;
+        }
+        &--brand {
+          line-height: 38px;
+          padding: 0 0 0 16px;
+        }
+      }
+      &--right {
+        display: flex;
+        margin-left: auto;
+        &--login {}
+        &--new {}
+      }
+    }
+  }
+}

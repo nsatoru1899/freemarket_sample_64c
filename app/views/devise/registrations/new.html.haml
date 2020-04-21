@@ -1,74 +1,88 @@
-%h2 Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :nickname
-    %br/
-    = f.text_field :nickname, autofocus: true, autocomplete: "nickname"
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-    %br/
-    = f.password_field :password, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .field
-    = f.label :familyname
-    %br/
-    = f.text_field :familyname, autofocus: true, autocomplete: "familyname"
-  .field
-    = f.label :firstname
-    %br/
-    = f.text_field :firstname, autofocus: true, autocomplete: "firstname"
-  .field
-    = f.label :familyname_kana
-    %br/
-    = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana"
-  .field
-    = f.label :firstname_kana
-    %br/
-    = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana"
-  .field
-    = f.label :phonenumber
-    %br/
-    = f.telephone_field :phonenumber, autofocus: true, autocomplete: "phonenumber"
-  .field
-    = f.label :birth_date
-    %br/
-    = f.date_select :birth_date, autofocus: true, autocomplete: "birth_date"
-  .field
-    = f.label :detail
-    %br/
-    = f.text_area :detail, autofocus: true, autocomplete: "detail"
-  = f.fields_for :address do |f|
-    .field
-      = f.label :postal_code
-      %br/
-      = f.text_field :postal_code
-    .field
-      = f.label :prefecture_code
-      %br/
-      = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
-    .field
-      = f.label :city
-      %br/
-      = f.text_field :city
-    .field
-      = f.label :block
-      %br/
-      = f.text_field :block
-    .field
-      = f.label :building
-      %br/
-      = f.text_field :building
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.registration-header
+  = render "devise/shared/header-user"
+.registration-body
+  .registration-body__main
+    %h2 会員情報入力
+    = form_for(resource, as: resource_name, url: {action: "complete"}, builder: WithErrorFormBuilder) do |f|
+      .main-field
+        .field-1
+          = f.label :ニックネーム
+          %span.form-require 必須
+          %br/
+          = f.text_field :nickname, autofocus: true, autocomplete: "nickname", placeholder: "例）フリマ太郎", class: "text-space"
+        .field-user
+          = f.label :メールアドレス
+          %span.form-require 必須
+          %br/
+          = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "PC・携帯どちらでも可", class: "text-space"
+        .field-user
+          = f.label :パスワード
+          %span.form-require 必須
+          %br/
+          = f.password_field :password, autocomplete: "new-password", placeholder: "７文字以上の半角英数字", class: "text-space"
+        .field-user
+          = f.label :パスワード確認
+          %span.form-require 必須
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "パスワード確認", class: "text-space"
+        .field-user
+          = f.label :お名前（全角）
+          %span.form-require 必須
+          %br/
+          = f.text_field :familyname, autofocus: true, autocomplete: "familyname", placeholder: "例）山田", class: "text-space"
+        .field-name
+          = f.text_field :firstname, autofocus: true, autocomplete: "firstname", placeholder: "例）太郎", class: "text-space"
+        .field-user
+          = f.label :お名前かな（全角）
+          %span.form-require 必須
+          %br/
+          = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana", placeholder: "例）やまだ", class: "text-space"
+        .field-name
+          = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", placeholder: "例）たろう", class: "text-space"
+        .field-user
+          = f.label :電話番号
+          %span.form-require 必須
+          %br/
+          = f.telephone_field :phonenumber, autofocus: true, autocomplete: "phonenumber", placeholder: "（ハイフン）不要", class: "text-space"
+        .field-user
+          = f.label :生年月日
+          %span.form-require 必須
+          %br/
+          = f.date_select(:birth_date, use_month_numbers: true, prompt: "--", start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width")
+        .field-user
+          = f.label :detail
+          %span.form-require 任意
+          %br/
+          = f.text_area :detail, autofocus: true, autocomplete: "detail", placeholder: "自己紹介", class: "text-space"
+        = f.fields_for :address do |f|
+          .field-user
+            = f.label :郵便番号
+            %span.form-require 必須
+            %br/
+            = f.text_field :postal_code, class: "text-space", placeholder: "（ハイフン）不要"
+          .field-user
+            = f.label :都道府県
+            %span.form-require 必須
+            %br/
+            = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--", value: '選択してください'
+          .field-user
+            = f.label :市区町村
+            %span.form-require 必須
+            %br/
+            = f.text_field :city, class: "text-space"
+          .field-user
+            = f.label :番地
+            %span.form-require 必須
+            %br/
+            = f.text_field :block, class: "text-space"
+          .field-user
+            = f.label :建物
+            %span.form-require 任意
+            %br/
+            = f.text_field :building, class: "text-space"
+        .note
+          ※ 本人情報は正しく入力してください。会員登録後、修正するにはお時間を頂く場合があります。
+      .actions__new
+        = f.submit "次へ進む", class: "next-new"
+.footer
+  = render "shared/footer"

@@ -3,11 +3,22 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  # before_action :create, only: [:complete]
 
   # GET /resource/sign_up
   def new
     @user = User.new
     @address = @user.build_address
+  end
+
+  def complete
+    build_resource(sign_up_params)
+    if @user.save
+      sign_in @user
+      render :complete
+    else
+      render :new
+    end
   end
 
   # POST /resource
@@ -20,7 +31,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # PUT /resource
+  # GET /resource/update
   # def update
   #   super
   # end
@@ -60,4 +71,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  protected
+
+  def update_resource(resource, params)
+    resource.update_without_current_password(params)
+  end
+
 end
