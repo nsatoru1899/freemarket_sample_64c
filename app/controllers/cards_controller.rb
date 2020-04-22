@@ -1,21 +1,20 @@
 class CardsController < ApplicationController
   # Payjpの利用、APIキーの設定
   require "payjp"
-  Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+before_action :authenticate_user!
+before_action :set_card, except: [:create]
 
   # カードを既に登録していたらトップページに遷移
   def new
-    card = Card.where(user_id: current_user.id)
-    if card.exists?
-      redirect_to root_path
-    else
+    if @card.blank?
       @card = Card.new
+    else
+      redirect_to root_path
     end
   end
 
   def create
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-
     if params['payjp-token'].blank?
       redirect_to action: "new"
     else
@@ -32,5 +31,54 @@ class CardsController < ApplicationController
         redirect_to action: "new"
       end
     end
+  end
+
+  def show
+    if @card.blank?
+      render :show
+    else
+      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+      customer = Payjp::Customer.retrieve(@card.customer_id)
+      # Payjpのcustomerオブジェクトのカードオブジェクトを抽出する
+      @card = customer.cards.retrieve(@card.card_id)
+      # 登録しているカード会社のブランドアイコンを表示する
+      @card_brand = @card.brand
+
+      case @card_brand
+
+      when "Visa"
+        @card_src = "visa.svg"
+      when "JCB"
+        @card_src = "jcb.svg"
+      when "MasterCard"
+        @card_src = "master-card.svg"
+      when "American Express"
+        @card_src = "american_express.svg"
+      when "Diners Club"
+        @card_src = "dinersclub.svg"
+      when "Discover"
+        @card_src = "discover.svg"
+      end
+    end
+  end
+
+  # PayjpのサーバーとDBの情報の削除
+  def destroy
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # Payjpのcustomerオブジェクトを取得。引数にPayjpのcutomer_idトークンを持たせる
+    customer = Payjp::Customer.retrieve(@card.customer_id)
+
+    if @card.destroy
+      customer.delete
+    else
+      redirect_to action: "show"
+    end
+    redirect_to action: "show"
+  end
+
+  private
+
+  def set_card
+    @card = Card.where(user_id: current_user.id).first
   end
 end
