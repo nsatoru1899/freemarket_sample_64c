@@ -30,7 +30,7 @@ RSpec.describe CardsController, type: :controller do
       it "@cardに値が入っていない状態でもshow.html.hamlに遷移する" do
         get :show, params: { id: user }
         expect(response).to render_template :show
-      end      
+      end
     end
   end
 
@@ -53,7 +53,7 @@ RSpec.describe CardsController, type: :controller do
       end
       it "未ログインだとログイン画面に遷移する" do
         delete :destroy, params: { id: @card.id }
-        expect(response).to redirect_to "/users/sign_in" 
+        expect(response).to redirect_to "/users/sign_in"
       end
     end
 
@@ -69,5 +69,5 @@ RSpec.describe CardsController, type: :controller do
         expect(response).to redirect_to card_path
       end
     end
-  end 
+  end
 end

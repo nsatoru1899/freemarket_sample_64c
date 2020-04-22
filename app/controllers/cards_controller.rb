@@ -64,9 +64,9 @@ before_action :set_card, except: [:create]
 
   # PayjpのサーバーとDBの情報の削除
   def destroy
-      Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
-      # Payjpのcustomerオブジェクトを取得。引数にPayjpのcutomer_idトークンを持たせる
-      customer = Payjp::Customer.retrieve(@card.customer_id)
+    Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
+    # Payjpのcustomerオブジェクトを取得。引数にPayjpのcutomer_idトークンを持たせる
+    customer = Payjp::Customer.retrieve(@card.customer_id)
 
     if @card.destroy
       customer.delete
