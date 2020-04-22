@@ -73,7 +73,6 @@ before_action :set_card, except: [:create]
     else
       redirect_to action: "show"
     end
-    
     redirect_to action: "show"
   end
 
