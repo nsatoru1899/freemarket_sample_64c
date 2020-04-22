@@ -71,6 +71,7 @@ group :development, :test do
 end
 
 gem 'active_hash' # 都道府県選択用 中村
+gem 'ancestry' # カテゴリー機能の実装に使用 藤井
 gem 'carrierwave' # 画像アップロードに使用 寺西
 gem 'devise' # user作成に必要 金
 gem 'fog-aws' # 外部のストレージ選択・アップロード補助のため 寺西
