@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   }
   root 'tests#index'
   resources :tests
-  resources :cards, only: %i[new create]
+  resources :cards, only: %i[new create show destroy]
   resources :items, only: %i[new create show edit]
   resources :users do
     collection do
@@ -12,7 +12,6 @@ Rails.application.routes.draw do
       get 'sign_out'
     end
   end
-
 
   devise_scope :user do
     post 'users/sign_up/complete' => 'users/registrations#complete'

@@ -1,10 +1,12 @@
 @import "reset";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "header-user";
 @import "header";
 @import "main";
 @import "footer";
 @import "sign-in";
-@import "card";
+@import "card-new";
 @import "colors";
 @import "flash";
 @import "camera";
@@ -16,5 +18,7 @@
 @import "user_my_page";
 @import "_side_bar.scss";
 @import "items";
+@import "card-show";
 @import "sign_out.scss";
 @import "show";
+@import "card-show";

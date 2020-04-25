@@ -18,7 +18,6 @@ class User < ApplicationRecord
   validates :familyname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
   validates :firstname_kana, presence: true, format: { with: /\A[ぁ-んー－]+\z/, message: "全角ひらがなのみで入力してください" }
 
-
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
