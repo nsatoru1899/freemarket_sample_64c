@@ -1,11 +1,16 @@
 $(document).on('turbolinks:load', ()=> { 
+  layoutImg();
+
+  // ファイルフィールドと画像プレビューのレイアウトを整える関数
+  function layoutImg(){
   if($('.image-input').length >= 2){
     $('.form-image').css({'display':'flex', 'justify-content':'space-between', 'align-items':'center'});    
     $('.image-description').css('display','none');
     $('.first-image').css('display', 'inline');
     $('#drop-area > label').css('margin-top', '0');
     }
-
+  };
+  
   // 画像用のinputを生成する関数
   var buildFileField = (index)=> {
     var html = `<div data-index="${index}" class="file-field-group">
@@ -24,13 +29,19 @@ $(document).on('turbolinks:load', ()=> {
 
   // file_fieldのnameに動的なindexをつける為の配列
   var fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  
+  // 繰り返し使われる記述を変数に代入
+  var defaultImg = $('.image-default');
+  var attachedImg = $('.image-input');
+
   // 既に使われているindexを除外
   lastIndex = $('.file-field-group:last').data('index');
   fileIndex.splice(0, lastIndex);
   $('.hidden-destroy').hide();
-  $('.image-default').hide();
-  $('.image-default').prop('disabled',true);
+  defaultImg.hide();
+  defaultImg.prop('disabled',true);
 
+  // ファイルフィールドが変更された際の処理
   $('#drop-area').on('change', '.image-input', function(e) {
     var targetIndex = $(this).parent().data('index');
         // ファイルのブラウザ上でのURLを取得する
@@ -47,21 +58,22 @@ $(document).on('turbolinks:load', ()=> {
       // 末尾の数に1足した数を追加する
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
       // css追加
-      $('.image-input').css('width', '200px');
-      if($('.image-input').length >= 2){
-      $('.form-image').css({'display':'flex', 'justify-content':'space-between', 'align-items':'center'});    
-      $('.image-description').css('display','none');
-      $('#drop-area > label').css('margin-top', '0');
-      $('.first-image').css('display', 'inline');
+      attachedImg.css('width', '200px');
+      layoutImg();
+      if(attachedImg.length >= 2){
+      // ファイルが登録されたファイルフィールドの横に削除ボタンを設置
       $(".remove-first").removeClass('empty-remove');
       $(".remove-"+targetIndex).removeClass('empty-remove');
-      }
-      if($('.image-input').length > 10){
+      };
+
+      // 画像を10枚以上登録しようとするとアラートを出す処理
+      if(attachedImg.length > 10){
         window.alert('アップロードできる画像は10枚までです。')
       }
     }
   });
 
+  // 削除ボタンが押された際の処理
   $('#drop-area').on('click', '.remove-image', function() {
     $(this).parent().remove();
     var targetIndex = $(this).parent().data('index');
@@ -71,7 +83,7 @@ $(document).on('turbolinks:load', ()=> {
     if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(`img[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
-    if ($('.image-input').length == 0) $('#drop-area').append(buildFileField(fileIndex[0]));
+    if (attachedImg.length == 0) $('#drop-area').append(buildFileField(fileIndex[0]));
   });
 
   // 商品説明フォームの文字数カウント
