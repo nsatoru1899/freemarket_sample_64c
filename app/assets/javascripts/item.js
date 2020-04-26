@@ -1,22 +1,35 @@
-$(function(){ 
+$(document).on('turbolinks:load', ()=> { 
+  if($('.image-input').length >= 2){
+    $('.form-image').css({'display':'flex', 'justify-content':'space-between', 'align-items':'center'});    
+    $('.image-description').css('display','none');
+    $('.first-image').css('display', 'inline');
+    $('#drop-area > label').css('margin-top', '0');
+    }
+
   // 画像用のinputを生成する関数
   var buildFileField = (index)=> {
     var html = `<div data-index="${index}" class="file-field-group">
                     <input class="image-input" type="file"
-                    name="product[images_attributes][${index}][src]"
-                    id="product_images_attributes_${index}_src">
-                    <span class="remove-image">削除</span>
+                    name="item[images_attributes][${index}][src]"
+                    id="item_images_attributes_${index}_src">
+                    <span class="remove-image empty-remove remove-${index}">削除</span>
                   </div>`;
     return html;
   }
 
   var buildImg = (index, url)=> {
-    var html = `<img data-index="${index}" src="${url}" width="70px" height="70px">`;
+    var html = `<img data-index="${index}" src="${url}" width="70px" height="70px" class="image-preview">`;
     return html;
   }
 
   // file_fieldのnameに動的なindexをつける為の配列
   var fileIndex = [1,2,3,4,5,6,7,8,9,10];
+  // 既に使われているindexを除外
+  lastIndex = $('.file-field-group:last').data('index');
+  fileIndex.splice(0, lastIndex);
+  $('.hidden-destroy').hide();
+  $('.image-default').hide();
+  $('.image-default').prop('disabled',true);
 
   $('#drop-area').on('change', '.image-input', function(e) {
     var targetIndex = $(this).parent().data('index');
@@ -35,11 +48,13 @@ $(function(){
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
       // css追加
       $('.image-input').css('width', '200px');
-      if($('.image-input').length == 2){
+      if($('.image-input').length >= 2){
       $('.form-image').css({'display':'flex', 'justify-content':'space-between', 'align-items':'center'});    
       $('.image-description').css('display','none');
-      $('.first-image').css('display', 'inline');
       $('#drop-area > label').css('margin-top', '0');
+      $('.first-image').css('display', 'inline');
+      $(".remove-first").removeClass('empty-remove');
+      $(".remove-"+targetIndex).removeClass('empty-remove');
       }
       if($('.image-input').length > 10){
         window.alert('アップロードできる画像は10枚までです。')
@@ -50,6 +65,10 @@ $(function(){
   $('#drop-area').on('click', '.remove-image', function() {
     $(this).parent().remove();
     var targetIndex = $(this).parent().data('index');
+        // 該当indexを振られているチェックボックスを取得する
+    var hiddenCheck = $(`input[data-index="${targetIndex}"].hidden-destroy`);
+        // もしチェックボックスが存在すればチェックを入れる
+    if (hiddenCheck) hiddenCheck.prop('checked', true);
     $(`img[data-index="${targetIndex}"]`).remove();
     // 画像入力欄が0個にならないようにしておく
     if ($('.image-input').length == 0) $('#drop-area').append(buildFileField(fileIndex[0]));
@@ -73,10 +92,7 @@ $(function(){
             <option value="6">6</option>
         </select>`
       $('#item_category_2').replaceWith(html);
-      $('#item_category_3').remove();
-      $('.item-detail').css('height','420px');
-      $('.item-detail__brand').css('margin-top','120px');
-
+      $('#item_category_id').remove();
     }
     else{
       var html = 
@@ -86,8 +102,6 @@ $(function(){
             <option value="6">6</option>
         </select>`
       $('.item-detail__category').append(html);
-      $('.item-detail').css('height','420px');
-      $('.item-detail__brand').css('margin-top','120px');
     }
   })
 
@@ -100,19 +114,15 @@ $(function(){
             <option value="9">9</option>
         </select>`
       $('#item_category_3').replaceWith(html);
-      $('.item-detail').css('height','500px');
-      $('.item-detail__brand').css('margin-top','200px');
     }
     else{
       var html = 
-      `<select name="item[category_id]" id="item_category_3">
+      `<select name="item[category_id]" id="item_category_id">
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
         </select>`
       $('.item-detail__category').append(html);
-      $('.item-detail').css('height','500px');
-      $('.item-detail__brand').css('margin-top','200px');
     }
   })
  

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :tests
   resources :cards, only: %i[new create show destroy]
-  resources :items, only: %i[new create show edit]
+  resources :items, only: %i[new create show edit update]
   resources :users do
     collection do
       get 'user_my_page'

@@ -28,7 +28,7 @@ $font-family: "Source Sans Pro", Helvetica, Arial, "游ゴシック体", "YuGoth
 }
 
 @mixin fields() {
-  width: 600px;
+  width: 620px;
   height: 48px;
   font-size: 16px;
   margin-top: 16px;
@@ -70,8 +70,8 @@ body{
 }
 
 .item-image{
-  width: 620px;
-  height: 220px;
+  width: 700px;
+  height: 300px;
   padding: 40px;
   margin: auto;
   background: $background-color;  
@@ -101,13 +101,20 @@ body{
           }
         }
       }
+      .default-label{
+        margin-top: 0;
+      }
+      .empty-remove{
+        display: none;
+        margin-left: 0;
+      }
     }
   } 
 }
 
 .item-information{
-  width: 620px;
-  height: 320px;
+  width: 700px;
+  height: 400px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -139,8 +146,8 @@ body{
 }
 
 .item-detail{
-  width: 620px;
-  height: 360px;
+  width: 700px;
+  height: 570px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -163,13 +170,17 @@ body{
       @include fields();
       width: 620px;
     }
-    #item_category_3{
+    #item_category_id{
+      @include fields();
+      width: 620px;
+    }
+    .item_category{
       @include fields();
       width: 620px;
     }
   }
   &__brand{
-    margin-top: 60px;
+    margin-top: 200px;
     .brand-label{
       @include fontsize-weight();
     }
@@ -194,8 +205,8 @@ body{
 }
 
 .shipping-information{
-  width: 620px;
-  height: 360px;
+  width: 700px;
+  height: 440px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -218,7 +229,7 @@ body{
     .prefecture-label{
       @include fontsize-weight();
     }
-    #item_prefecture_code{
+    #item_prefecture_id{
       @include fields();
       width: 620px;
     }
@@ -236,8 +247,8 @@ body{
 }
 
 .price-information{
-  width: 620px;
-  height: 230px;
+  width: 700px;
+  height: 310px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -282,8 +293,8 @@ body{
 }
 
 .actions{
-  width: 620px;
-  height: 120px;
+  width: 700px;
+  height: 200px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -291,7 +302,8 @@ body{
     .send-btn{
       @include button();
       color: #FFFFFF;
-      background-color: #EA352E;
+      background-color: #3CCACE;
+      border-color: #3CCACE;
     }  
   }
   &__draft{
@@ -314,8 +326,8 @@ body{
 }
 
 .notes{
-  width: 620px;
-  height: 50px;
+  width: 700px;
+  height: 130px;
   margin: auto;
   padding: 40px;
   background: $background-color;  
@@ -327,7 +339,7 @@ body{
 
 .form-require {
   @include reuired-optional();
-  background-color: red;
+  background-color: #3CCACE;
 }
 
 .form-optional {
