@@ -7,8 +7,8 @@ class Item < ApplicationRecord
   belongs_to :seller, class_name: "User", foreign_key: "seller_id"
   belongs_to :buyer, class_name: "User", optional: true
   accepts_nested_attributes_for :brand
-  accepts_nested_attributes_for :images, allow_destroy: true 
-  validates :images, presence: true, length: {minimum: 1, maximum: 10}
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates :images, presence: true, length: { minimum: 1, maximum: 10 }
   validates :name, :detail, :status_id, :charge_id, :prefecture_id, :category_id, :day_id, presence: true
   validates :price, presence: true, numericality: true
   extend ActiveHash::Associations::ActiveRecordExtensions
@@ -17,6 +17,3 @@ class Item < ApplicationRecord
   belongs_to_active_hash :status
   belongs_to_active_hash :day
 end
-
-
-

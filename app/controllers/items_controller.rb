@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :create]
+  before_action :authenticate_user!, only: %i[new create]
   before_action :set_item, only: [:show]
 
   def show
@@ -15,15 +15,13 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-    @item.brand.destroy if @item.brand.name==""
+    @item.brand.destroy if @item.brand.name == ""
     if @item.save
       redirect_to root_path
     else
       redirect_to new_item_path
     end
   end
-
-
 
   private
 
@@ -35,9 +33,3 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 end
-
-
-  
-  
-
-  

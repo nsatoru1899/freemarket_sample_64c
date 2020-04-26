@@ -12,7 +12,7 @@ FactoryBot.define do
     # brand_id         { 1 }
     # brand
     charge_id        { 1 }
-    
+
     after(:build) do |item|
       # carrierwaveの場合
       item.seller_id = create(:user).id
@@ -22,5 +22,3 @@ FactoryBot.define do
     end
   end
 end
-
-

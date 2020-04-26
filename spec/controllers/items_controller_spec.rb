@@ -1,9 +1,9 @@
- require "rails_helper"
+require "rails_helper"
 
 RSpec.describe ItemsController, type: :controller do
 
-  let(:user) {create(:user)}
-  
+  let(:user) { create(:user) }
+
   describe "GET #new" do
     it "ログインしていないとログインページに遷移する" do
       get :new
@@ -13,24 +13,7 @@ RSpec.describe ItemsController, type: :controller do
       login user
       get :new
       expect(response).to render_template :new
-   end
+    end
   end
 
 end
- 
-  
-
-
-
-
-
-
-
-
-       
-
-
-
-
-
- 
