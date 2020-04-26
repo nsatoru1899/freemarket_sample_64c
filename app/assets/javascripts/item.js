@@ -3,8 +3,8 @@ $(function(){
   var buildFileField = (index)=> {
     var html = `<div data-index="${index}" class="file-field-group">
                     <input class="image-input" type="file"
-                    name="product[images_attributes][${index}][src]"
-                    id="product_images_attributes_${index}_src">
+                    name="item[images_attributes][${index}][src]"
+                    id="item_images_attributes_${index}_src">
                     <span class="remove-image">削除</span>
                   </div>`;
     return html;

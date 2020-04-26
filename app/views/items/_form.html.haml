@@ -1,4 +1,5 @@
 = form_for @item do |f|
+
   .item-image
     = f.fields_for :images do |f|
       .field.item-image__image
@@ -73,7 +74,7 @@
       = f.label "発送元の地域", class: 'prefecture-label'
       %span.form-require 必須
       %br/
-      = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "選択してください", class: 'prefecture-input'
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'prefecture-input'
     .field.shipping-information__day
       = f.label "発送までの日数", class: 'day-label'
       %span.form-require 必須
