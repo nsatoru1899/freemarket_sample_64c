@@ -391,7 +391,7 @@ body{
       font-size: 12px;
     }
   }
-  label{
+  .complete-btn{
     @include button();
     background-color: #3CCACE;
     a{
