@@ -60,7 +60,7 @@ $(document).on('turbolinks:load', ()=> {
       // css追加
       attachedImg.css('width', '200px');
       layoutImg();
-      if(attachedImg.length >= 2){
+      if(attachedImg.length >= 1){
       // ファイルが登録されたファイルフィールドの横に削除ボタンを設置
       $(".remove-first").removeClass('empty-remove');
       $(".remove-"+targetIndex).removeClass('empty-remove');

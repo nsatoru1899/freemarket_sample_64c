@@ -17,7 +17,7 @@
                 -#%br
                 クリックしてファイルをアップロード
                 %br
-              .file-field-group{data: {index: "<%= image.index %>"}}
+              .file-field-group{data: {index: f.index}}
                 = f.file_field :src, class: 'image-input first-image'
                 %span.remove-image.first-image
                   削除
