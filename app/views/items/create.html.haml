@@ -1,0 +1,14 @@
+.complete-box
+  .complete-message
+    .complete-message__1
+      出品が完了しました
+    .complete-message__2
+      出品した商品は「<a href="">出品した商品</a>」からいつでもみつことができます
+  %label.continue
+    = link_to new_item_path do
+      続けて出品する
+  %label.view-item
+    = link_to item_path(@item.id) do
+      出品した商品をみる
+  .share-item
+    = link_to "商品をシェアする", :back
