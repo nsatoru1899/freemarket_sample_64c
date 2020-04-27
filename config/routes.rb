@@ -5,7 +5,16 @@ Rails.application.routes.draw do
   root 'tests#index'
   resources :tests
   resources :cards, only: %i[new create show destroy]
-  resources :items, only: %i[new create show edit]
+  resources :items, only: %i[new create show edit] do
+    member do
+      get 'buy', to: 'items#buy'
+      post 'pay', to: 'items#pay'
+    end
+    collection do
+      get 'complete', to: 'items#complete'
+    end
+  end
+
   resources :users do
     collection do
       get 'user_my_page'

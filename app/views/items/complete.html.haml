@@ -1,0 +1,14 @@
+.complete-header
+  = render "devise/shared/header-user"
+.complete-body
+  .complete-body__main
+    %h2 購入情報
+    .complete-body__main-
+      .note
+        ありがとうございます。
+        %br/
+        購入が完了しました。
+    .actions__complete
+      = link_to "トップページへ戻る", root_path, class: "next-complete"
+.footer
+  = render "shared/footer"
