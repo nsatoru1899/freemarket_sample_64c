@@ -6,6 +6,8 @@ class User < ApplicationRecord
   has_many :items
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :selling_items, class_name: "Item", foreign_key: "seller_id"
+  has_many :bought_items, class_name: "Item", foreign_key: "buyer_id"
   has_one :card, dependent: :destroy
   has_one :address, dependent: :destroy
   accepts_nested_attributes_for :address
