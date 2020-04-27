@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', (e) => {
       exp_month: document.getElementById('exp_month').value,
       exp_year: document.getElementById('exp_year').value
     };
-    console.log(card);
     
     // トークン生成
     Payjp.createToken(card, (status, response) => {
