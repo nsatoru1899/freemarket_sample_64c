@@ -118,14 +118,14 @@ $(document).on('turbolinks:load', ()=> {
   })
 
   $(document).on("change", "#item_category_2", function(){
-    if($("#item_category_3").size()){
+    if($("#item_category_id").size()){
       var html = 
-      `<select name="item[category_id]" id="item_category_3">
+      `<select name="item[category_id]" id="item_category_id">
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
         </select>`
-      $('#item_category_3').replaceWith(html);
+      $('#item_category_id').replaceWith(html);
     }
     else{
       var html = 
