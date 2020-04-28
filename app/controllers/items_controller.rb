@@ -75,6 +75,7 @@ class ItemsController < ApplicationController
     Payjp.api_key = ENV["PAYJP_PRIVATE_KEY"]
 
     return nil if @card.blank?
+
     customer = Payjp::Customer.retrieve(@card.customer_id)
     # Payjpのcustomerオブジェクトのカードオブジェクトを抽出する
     @card = customer.cards.retrieve(@card.card_id)
@@ -96,7 +97,6 @@ class ItemsController < ApplicationController
     when "Discover"
       @card_src = "discover.svg"
     end
-    
   end
 
   def set_user_detail
