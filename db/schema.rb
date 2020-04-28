@@ -63,15 +63,17 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.integer  "brand_id"
     t.integer  "status_id",                   null: false
     t.integer  "charge_id",                   null: false
+    t.integer  "prefecture_id",               null: false
     t.integer  "day_id",                      null: false
     t.integer  "category_id",                 null: false
-    t.integer  "seller",                      null: false
-    t.integer  "buyer"
+    t.integer  "seller_id",                   null: false
+    t.integer  "buyer_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "prefecture_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
   end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -87,7 +89,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.string   "firstname",                                         null: false
     t.string   "familyname_kana",                                   null: false
     t.string   "firstname_kana",                                    null: false
-    t.integer  "phonenumber"
+    t.integer  "phonenumber",                                       null: false
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
     t.string   "email",                                default: "", null: false
@@ -98,8 +100,6 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
     t.string   "avatar"
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "addresses", "users"
@@ -108,4 +108,6 @@ ActiveRecord::Schema.define(version: 20200412042204) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end

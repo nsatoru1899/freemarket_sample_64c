@@ -50,13 +50,14 @@ class ItemsController < ApplicationController
     )
     binding.pry
     if response.status == 200 
-      @item.buyer = current_user.id
+      @item.buyer = current_user
       @item.save
       render :complete
     else
       redirect_to buy_item_path
     end
-    
+  end
+  
   private
 
   def items_params
