@@ -80,7 +80,7 @@
     .item-boxes__item-box__contents.clearfix
       - @user_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text
@@ -97,7 +97,7 @@
     .item-boxes__item-box__contents.clearfix
       - @category_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text
