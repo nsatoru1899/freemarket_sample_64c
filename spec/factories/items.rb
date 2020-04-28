@@ -13,11 +13,11 @@ FactoryBot.define do
     # brand
     charge_id        { 1 }
     # after(:build) do |item|
-      # # carrierwaveの場合
-      # item.seller_id = create(:user).id
-      # item.images << build(:image)
-      # # item.brand_id = create(:brand).id
-      # item.category_id = create(:category).id
+    # # carrierwaveの場合
+    # item.seller_id = create(:user).id
+    # item.images << build(:image)
+    # # item.brand_id = create(:brand).id
+    # item.category_id = create(:category).id
     # end
   end
 end
