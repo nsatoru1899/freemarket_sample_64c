@@ -80,9 +80,9 @@
       .main--5__contents--lists
         - @items.all.each do |item|
           .main--5__contents--lists--list
-            = link_to "" do
+            = link_to item_path(item.id) do
               %figure
-                = image_tag ''
+                = image_tag item.images[0].src
               .main--5__contents--lists--list__content
                 %h3 #{item.name}
                 .main--5__contents--lists--list__content__detail
@@ -99,9 +99,9 @@
       .main--5__contents--lists
         - @items.each do |item|
           .main--5__contents--lists--list
-            = link_to "" do
+            = link_to item_path(item.id) do
               %figure
-                = image_tag ''
+                = image_tag  item.images[0].src
               .main--5__contents--lists--list__content
                 %h3 #{item.name}
                 .main--5__contents--lists--list__content__detail
