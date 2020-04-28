@@ -15,7 +15,7 @@ class ItemsController < ApplicationController
     @item = Item.new(items_params)
     @item.brand.destroy if @item.brand.name == ""
     if @item.save
-      redirect_to root_path
+      render :create
     else
       redirect_to new_item_path
     end
@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(items_params)
-      redirect_to root_path
+      render :update
     else
       render :edit
     end

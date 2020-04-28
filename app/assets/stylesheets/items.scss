@@ -366,3 +366,56 @@ body{
   height: 24px;
   color: #333333;
 }
+
+.complete-box{
+  position: absolute; 
+  position: fixed;
+  z-index: 51;
+  top: 30%;
+  left: 29.3%;
+  width: 600px;
+  height: 360px;
+  margin: 0 auto;
+  background-color: $background-color;
+  .complete-message{
+    &__1{
+      padding-top: 60px;
+      font-size: 17px;
+      font-weight: 600;
+      text-align: center;
+    }
+    &__2{
+      margin-top: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 12px;
+    }
+  }
+  .complete-btn{
+    @include button();
+    background-color: #3CCACE;
+    a{
+      color: #FFFFFF;
+    }
+  }
+  .share-item{
+    width: 310px;
+    height: 20px;
+    margin: 0 auto;
+    margin-bottom: 24px;
+    text-align: center;
+    font-size: 14px;
+    color: #0095EE;
+  }
+}
+.gray-panel{
+  background-color: #000;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 50;
+}
