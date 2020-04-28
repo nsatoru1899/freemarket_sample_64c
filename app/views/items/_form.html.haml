@@ -1,5 +1,4 @@
-= form_for @item do |f|
-
+= form_for(@item, builder: WithErrorFormBuilder) do |f|
   .item-image
     = f.fields_for :images do |f|
       .field.item-image__image
@@ -50,6 +49,7 @@
           2
         %option
           3
+      = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", id: "item_category_3", class: "item_category"  
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'
