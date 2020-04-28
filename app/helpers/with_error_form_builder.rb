@@ -64,4 +64,3 @@ class WithErrorFormBuilder < ActionView::Helpers::FormBuilder
   end
 
 end
-
