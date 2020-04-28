@@ -48,7 +48,6 @@ class ItemsController < ApplicationController
       customer: @card.customer_id,
       currency: 'jpy',
     )
-    binding.pry
     if response.status == 200 
       @item.buyer = current_user
       @item.save
