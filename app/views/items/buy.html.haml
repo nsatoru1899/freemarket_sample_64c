@@ -1,0 +1,83 @@
+= render 'devise/shared/header-user'
+
+.buy-wrapper
+  %h2.buy-header 購入内容の確認
+  .buy-body
+    %section.buy-body__item
+      .buy-body__item__detail
+        %h3.buy-body__item__image
+          = image_tag @item.images[0].src, alt: 'picture', height: '64px', width: '64px', class: 'buy-body__item__image'
+        .buy-body__item__name
+          %p.buy-body__item__name
+            = @item.name
+          %p.buy-body__item__price--bold
+            %span
+              = "¥#{@item.price.to_s(:delimited, delimiter: ',')}" 
+              (税込)
+            %span
+              - if @item.charge_id == 1
+                送料込み
+              - else @item.charge_id == 2
+                着払い
+
+    %section.buy-body__item
+      .buy-body__item__price
+        %h3.buy-body__item--justified
+          %span.buy-body__item__price--left 支払い金額
+          %span.buy-body__item__price--right  
+            = "¥#{@item.price.to_s(:delimited, delimiter: ',')}"
+
+    %section.buy-body__item
+      %h3.buy-body__item__card
+        - if @card
+          .buy-body__item--justified
+            %h3.payment-info 支払い方法            
+            = link_to '変更する', card_path, class: "payment-info--blue"
+          %span.set-payment クレジットカード
+          .set-payment
+            = "**** **** **** " + "#{@card.last4}"
+          .set-payment
+            %span 有効期限
+            - exp_month = "#{@card.exp_month.to_s}"
+            - exp_year = "#{@card.exp_year.to_s.slice(2,3)}"
+            = exp_month + " / " + "#{exp_year}"
+          %figure.set-payment
+            = image_tag "#{@card_src}", width: '49', height: '15', alt: @card_brand, id: "card_image"
+
+        - else
+          .buy-body__item__card
+            %h3.payment-info 支払い方法
+            = link_to new_card_path, class: "payment-info--blue" do
+              = icon('fas', 'plus',  class: "payment-info--blue") 
+              %span 登録してください
+
+    %section.buy-body__item
+      %h3.buy-body__item__shipping
+        .buy-body__item--justified
+          %span 配送先
+          = link_to '変更する', edit_user_registration_path
+      .buy-body__item__shipping__address
+        = "〒#{@address.postal_code}"
+        %br
+        = "#{@item.prefecture.name} #{@address.city} #{@address.block} #{@address.building}"
+        %br
+        = "#{@user.familyname} #{@user.firstname}"
+
+    - if @card.present?
+      .buy-body__item
+        = form_tag(pay_item_path, method: :post) do
+          .buy-body__item__pay__btn--select
+            = submit_tag "購入する", class: "buy-body__item__pay__btn--select__btn", data: { disable_with: "送信中..." }
+
+    - else
+      .buy-body__item
+        .buy-body__item__pay__btn--select--not 購入する
+         
+= render 'shared/footer'
+        
+      
+
+
+
+
+

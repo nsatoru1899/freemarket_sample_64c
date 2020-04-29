@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :category do
-    name      { "test" }
+    name      { "Tシャツ" }
     ancestry  { 1 }
     # item
   end
