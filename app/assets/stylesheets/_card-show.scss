@@ -1,0 +1,64 @@
+.card-show-wrappaer{
+  font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
+  width: 700px;
+  background-color: #ffffff;
+}
+
+
+.card-show-head{
+  padding: 12px 4%;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 24px;
+  text-align: center;
+}
+
+//カード追加フォームの表示
+
+.card-show-inner{
+  max-width: 343px;
+  margin: 0 auto;
+  padding: 40px;
+}
+
+
+.card-show-list{
+  max-width: 320px;
+  padding: 12px 0;
+  font-size: 14px
+}
+
+.add-card-btn{
+  display: block;
+  width: 100%;
+  margin: 24px 0 0 0;
+  line-height: 48px;
+  background-color: #3CCACE;
+  color: #ffffff;
+  text-align: center;
+  cursor: pointer;
+  }
+
+//カード情報の表示
+
+.card-show-list__content{
+  max-width: 343px;
+  margin: 0 auto;
+
+  &__form{
+    max-width: 320px;
+    position: relative;
+  }
+}
+
+.payment-remove{
+  font-size: 14px;
+  border-radius: 3px;
+  border: 1px solid #3CCACE;
+  color: #3CCACE;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+

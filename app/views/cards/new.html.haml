@@ -1,0 +1,54 @@
+.reg-wrapper
+  .reg-title
+    %h2 クレジットカード情報入力
+  .reg-content
+    .reg-content__inner
+      = form_tag("/cards", method: :post, id: 'inputForm',  name: "inputForm", class: "reg-card-form") do
+        .reg-content__inner__form
+          %label{:for => "card_number"}カード番号
+          %span.card-field__require 必須
+          = text_field_tag "card_number", "", class: "card-field__input", placeholder: "半角数字のみ"
+          
+          
+        %ul.reg__card--list
+          %li.reg__card--icon
+            = image_tag("visa.svg", id:"icon-visa", class: "icon")
+          %li.reg__card--icon
+            = image_tag("master-card.svg", id:"icon-master",class: "icon")
+          %li.reg__card--icon
+            = image_tag("saison-card.svg", id:"icon--saison",class: "icon")
+          %li.reg__card--icon
+            = image_tag("jcb.svg", id:"icon--jcb",class: "icon")
+          %li.reg__card--icon
+            = image_tag("american_express.svg", id:"icon--americanexpress",class: "icon")
+          %li.reg__card--icon
+            = image_tag("dinersclub.svg", id:"icon--diners",class: "icon")
+          %li.reg__card--icon
+            = image_tag("discover.svg", id:"icon--discover",class: "icon")
+
+        .card-field
+          %label 有効期限
+          %span.card-field__require 必須
+          %br/
+          
+          .card-field__select-wrapper
+            = select_tag "exp_month", options_for_select(["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]), class: "card-field__input--half"
+            %span.card-field__select 月
+          .card-field__select-wrapper
+            = select_tag "exp_year", options_for_select((2020..2030)), class: "card-field__input--half"
+            %span.card-field__select 年
+
+          .card-field__add--question
+            = link_to '#' do 
+              %span.card-field__add--question__icon ?
+              カード裏面の番号とは？
+            %end
+            
+
+        %label{:for => "cxc"}セキュリティコード
+        %span.card-field__require 必須
+        = text_field_tag "cvc", "", class: "card-field__input", placeholder: "カード背面4桁もしくは3桁の番号"
+                    
+        #card_token
+          = submit_tag "追加する", id: "token_submit", class: "reg-card__btn", data: { disable_with: "送信中..." }
+    

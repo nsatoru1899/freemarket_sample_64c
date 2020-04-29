@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render edit
+
     end
   end
   def edit; end

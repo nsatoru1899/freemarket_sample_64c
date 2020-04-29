@@ -1,0 +1,42 @@
+
+.complete-body {
+  display: block;
+  height: 360px;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+  background-repeat: no-repeat;
+  text-align: center;
+
+  &__main {
+    width: 700px;
+    height: 345px;
+    margin: 0 auto;
+    background-color: #ffffff;
+
+  
+  h2 {
+    padding: 32px;
+    border-bottom: solid 2px #f5f5f5;
+    font-size: 22px;
+  }
+  
+  .note {
+    margin: 8px 0 0;
+    color: #888;
+  }
+  
+  .actions__complete {
+    width: 343px;
+    border: 1px solid #3CCACE;
+    color: #fff;
+    line-height: 48px;
+    margin: 30px auto;
+    background: #3CCACE;
+  }
+
+  .next-complete {
+    color: #fff;
+  }
+}
+}

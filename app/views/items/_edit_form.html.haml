@@ -1,0 +1,131 @@
+= form_for(@item, builder: WithErrorFormBuilder) do |f|
+  .item-image
+    .field.item-image__image
+      = f.label "出品画像", class: 'image-label'
+      %span.form-require 必須
+      %p
+        最大10枚までアップロードできます
+      .form-image
+        #drop-area
+          %label
+            .image-description 
+            = f.fields_for :images do |f|
+              .file-field-group{data: {index: f.index}}
+                %label.default-label
+                  %span
+                    #{@item.images[f.index].src.identifier}
+                  = f.file_field :src, class: 'image-input image-default'
+                %span.remove-image
+                  削除
+              - if @item.persisted?
+                = f.check_box :_destroy, data:{ index: f.index }, class: 'hidden-destroy'
+            - if @item.persisted?
+              .file-field-group{data: {index: @item.images.count}}
+                = file_field_tag  :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'image-input'
+                %span.remove-image.empty-remove.remove-first
+                  削除                
+        #previews
+          - if @item.persisted?
+            - @item.images.each_with_index do |image, i|
+              %img{data: {index: i}, src: image.src, width: "70px", height: "70px", class: "image-preview"}
+  .item-information
+    .field.item-information__name
+      = f.label "商品名", class: 'name-label'
+      %span.form-require 必須
+      %br/
+      = f.text_field :name, class: 'name-input', placeholder: "40文字まで"
+    .field.item-information__detail
+      = f.label "商品の説明", class: 'detail-label'
+      %span.form-require 必須
+      %br/
+      = f.text_area :detail, class: 'detail-input', placeholder: text_placeholder  
+      .text-count
+        %span
+          0/1000
+  .item-detail
+    %p
+      商品の詳細
+    .field.item-detail__category
+      = f.label "カテゴリー", class: 'category-label'
+      %span.form-require 必須
+      %br/
+      %select#item_category.item_category
+        %option
+          1
+        %option
+          2
+        %option
+          3
+      %br/
+      %select#item_category_2.item_category
+        %option
+          4
+        %option
+          5
+        %option
+          6
+      %br/
+      = f.collection_select :category_id, Category.all, :id, :name, id: "item_category_3", class: "item_category"
+    = f.fields_for :brand do |f|
+      .field.item-detail__brand
+        = f.label "ブランド", class: 'brand-label'
+        %span.form-optional 任意
+        %br/
+        = f.text_field :name, class: 'brand-input', placeholder: "例）シャネル"
+    .field.item-detail__status
+      = f.label "商品の状態", class: 'status-label'
+      %span.form-require 必須
+      %br/
+      = f.collection_select :status_id, Status.all, :id, :name, prompt: "選択してください", class: 'status-input'
+  .shipping-information
+    %p
+      配送について
+      = link_to "?", :back, class: 'help'
+    .field.shipping-information__charge
+      = f.label "配送料の負担", class: 'charge-label'
+      %span.form-require 必須
+      %br/
+      = f.collection_select :charge_id, Charge.all, :id, :name, prompt: "選択してください", class: 'charge-input'
+    .field.shipping-information__prefecture
+      = f.label "発送元の地域", class: 'prefecture-label'
+      %span.form-require 必須
+      %br/
+      = f.collection_select :prefecture_id, Prefecture.all, :id, :name, prompt: "選択してください", class: 'prefecture-input'
+    .field.shipping-information__day
+      = f.label "発送までの日数", class: 'day-label'
+      %span.form-require 必須
+      %br/
+      = f.collection_select :day_id, Day.all, :id, :name, prompt: "選択してください", class: 'day-input'
+  .price-information
+    %p
+      価格（¥300〜¥9,999,999）
+      = link_to "?", :back, class: 'help'
+    .field.price-information__price
+      .label-part
+        = f.label "販売価格", class: 'price-label'
+        %span.form-require 必須
+      .input-part
+        %span
+          ¥
+        = f.number_field :price, class: 'price-input', placeholder: "0"
+    .price-information__commission
+      .commission-name
+        販売手数料（10%）
+      .commission-value
+        #{(@item.price * 0.1).to_i}
+    .price-information__profit
+      .profit-name
+        販売利益
+      .profit-value
+        #{(@item.price * 0.9).to_i}
+  .actions
+    .actions__submit
+      = f.submit "更新する", class: 'send-btn'
+    .actions__draft
+      = f.submit "下書きに保存", class: 'draft-btn'
+    .actions__back
+      = link_to "もどる", :back
+  .notes
+    %p
+      禁止されている<a href="">行為</a>および<a href="">出品物</a>を必ずご確認ください。<a href="">偽ブランド品</a>や<a href="">盗品物</a>などの販売は犯罪であり、法律により処罰される可能性があります。 また、出品をもちまして<a href="">加盟店規約</a>に同意したことになります。
+      

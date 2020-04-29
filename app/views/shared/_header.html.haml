@@ -1,0 +1,31 @@
+.header 
+  .header__contents
+    .header__contents__searches
+      %h1.header__contents__searches--search-logo
+        = link_to "/" do
+          = image_tag 'logo/logo.png'
+      .header__contents__searches--search
+        %form(action="")  
+          %input(type="hidden")/
+          %input(placeholder="キーワードから探す")/
+          %button(type="submit")
+            .header__contents__searches--search__search-icon
+              = image_tag 'icon/icon-search 1.png'
+    .header__contents__nav
+      %ul.header__contents__nav--left
+        %li.header__contents__nav--left--category 
+          = link_to "カテゴリー", categories_path
+        %li.header__contents__nav--left--brand 
+          = link_to "" do
+            ブランド
+      %ul.header__contents__nav--right
+        - if user_signed_in?
+          %li.header__contents__nav--right--login 
+            = link_to "マイページ", user_my_page_users_path
+          %li.header__contents__nav--right--new 
+            = link_to "ログアウト", destroy_user_session_path, method: :delete
+        - else
+          %li.header__contents__nav--right--login 
+            = link_to "ログイン", new_user_session_path
+          %li.header__contents__nav--right--new 
+            = link_to "新規登録", new_user_registration_path

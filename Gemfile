@@ -18,7 +18,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :development do
@@ -63,12 +65,17 @@ group :development, :test do
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
   gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'rails-controller-testing'
   gem 'rspec-rails'
 end
 
 gem 'active_hash' # 都道府県選択用 中村
+gem 'ancestry' # カテゴリー機能の実装に使用 藤井
 gem 'carrierwave' # 画像アップロードに使用 寺西
 gem 'devise' # user作成に必要 金
 gem 'fog-aws' # 外部のストレージ選択・アップロード補助のため 寺西
+gem 'font-awesome-sass' # iconの使用のため
 gem 'haml-rails'
 gem 'mini_magick' # carrierwaveとセットで画像の処理に使用 寺西
+gem 'payjp'
