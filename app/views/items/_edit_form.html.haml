@@ -1,4 +1,4 @@
-= form_for @item do |f|
+= form_for(@item, builder: WithErrorFormBuilder) do |f|
   .item-image
     .field.item-image__image
       = f.label "出品画像", class: 'image-label'

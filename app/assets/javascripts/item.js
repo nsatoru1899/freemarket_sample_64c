@@ -95,6 +95,7 @@ $(document).on('turbolinks:load', ()=> {
   
   // 親カテゴリーを選択したら子カテゴリーが表示される（子カテゴリーを選択したら孫カテゴリーが表示される）
   // カテゴリー機能実装前のためデータはダミー
+  $('#item_category_id').hide();
   $("#item_category").on("change",function(){
     if($("#item_category_2").size()){
       var html = 

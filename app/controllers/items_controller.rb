@@ -17,7 +17,8 @@ class ItemsController < ApplicationController
     if @item.save
       render :create
     else
-      redirect_to new_item_path
+      @item.images.new
+      render :new
     end
   end
 
@@ -26,6 +27,14 @@ class ItemsController < ApplicationController
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order('created_at DESC').limit(6)
   end
 
+  def destroy
+    if @item.destroy
+      redirect_to root_path
+    else
+      render edit
+
+    end
+  end
   def edit; end
 
   def update

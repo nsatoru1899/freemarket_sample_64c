@@ -26,7 +26,8 @@
         %tr
           %th ブランド
           %td
-            = @item.brand.name
+            - if @item.brand.present?
+              = @item.brand.name
         %tr
           %th 商品の状態
           %td
@@ -69,9 +70,11 @@
         %textarea
         %button
           %span コメントする
-.icon-box
-
-
+-if user_signed_in? && current_user.id == @item.user_id
+  .btn-box
+    .btn-box__delete-btn
+      = link_to items_path, method: :delete do
+        %p この商品を削除する
 .item-boxes 
   %section.item-boxes__item-box.clearfix
     %h2.item-boxes__item-box__head
@@ -80,7 +83,7 @@
     .item-boxes__item-box__contents.clearfix
       - @user_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text
@@ -97,7 +100,7 @@
     .item-boxes__item-box__contents.clearfix
       - @category_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text
