@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
       redirect_to item_path
     end
   end
-  
   def edit; end
 
   def update
