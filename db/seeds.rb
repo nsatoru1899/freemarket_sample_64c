@@ -170,7 +170,7 @@ hobby_card.children.create([{ name: "遊戯王" }])
 hobby_figure.children.create([{ name: "コミック/アニメ" }])
 hobby_instrument.children.create([{ name: "エレキギター" }])
 hobby_collection.children.create([{ name: "武具" }])
-hobby_millitary.children.create([{ name: "トイガン" }])
+hobby_military.children.create([{ name: "トイガン" }])
 hobby_artwork.children.create([{ name: "陶芸" }])
 hobby_art.children.create([{ name: "画材" }])
 
