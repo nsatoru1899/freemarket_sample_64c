@@ -18,7 +18,7 @@
         %tr
           %th 出品者
           %td
-            = @item.user.nickname
+            = @item.seller.nickname
         %tr
           %th カテゴリー
           %td
@@ -26,7 +26,8 @@
         %tr
           %th ブランド
           %td
-            = @item.brand.name
+            - if @item.brand.present?
+              = @item.brand.name
         %tr
           %th 商品の状態
           %td
@@ -49,7 +50,7 @@
       = @item.price
     %span.tax (税込)
     %span.option 送料込み
-  -if user_signed_in? && current_user.id == @item.user_id
+  -if user_signed_in? && current_user.id == @item.seller_id
     = link_to edit_item_path(@item.id), class: "purchase_btn" do
       編集する
   -else
@@ -78,11 +79,11 @@
   %section.item-boxes__item-box.clearfix
     %h2.item-boxes__item-box__head
       = link_to "" do
-        #{@item.user.nickname}さんのその他の出品
+        #{@item.seller.nickname}さんのその他の出品
     .item-boxes__item-box__contents.clearfix
       - @user_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text
@@ -99,7 +100,7 @@
     .item-boxes__item-box__contents.clearfix
       - @category_items.each do |item|
         %section.item-boxes__item-box__contents__content
-          = link_to "" do
+          = link_to item_path(item.id) do
             %figure
               = image_tag item.images[0].src
             .text

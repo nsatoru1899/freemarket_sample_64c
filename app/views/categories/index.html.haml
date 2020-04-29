@@ -1,0 +1,26 @@
+= render 'shared/header'
+.category-box
+  .category-box__index
+    .category-box__index__list-nav
+      %h2.category-index
+        カテゴリー一覧
+    .category-box__index__list-nav__box
+      .parents_list
+        %div.clearfix
+          - @parents.each do |parent|
+            = link_to "#{parent.name}", categories_path(parent), class: "parent_category", id: "#{parent.id}"
+    .category_list
+      - @parents.each do |parent|
+        .category_list__box
+          %h2.genre_list
+            = parent.name
+          .children_box
+            - parent.children.each do |child|
+              %h3.child_list
+                = child.name
+              .grandchild_box
+                - child.children.each do |grandchild|
+                  .grandchild_box__list
+                    %p.grandchild_box__list__index
+                      = link_to %"#{grandchild.name}", categories_path(grandchild), class: "grandchild_category", id: "#{grandchild.id}"              
+= render 'shared/footer'

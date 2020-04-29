@@ -60,7 +60,7 @@ RSpec.describe CardsController, type: :controller do
     describe 'redirect_to :show' do
       before do
         sign_in user
-        @card = create(:card, user:user)
+        @card = create(:card, user: user)
         customer = double("Payjp::Customer")
         allow(Payjp::Customer).to receive(:retrieve).and_return(@card)
       end
