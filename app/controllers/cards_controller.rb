@@ -1,8 +1,8 @@
 class CardsController < ApplicationController
   # Payjpの利用、APIキーの設定
   require "payjp"
-before_action :authenticate_user!
-before_action :set_card, except: [:create]
+  before_action :authenticate_user!
+  before_action :set_card, except: [:create]
 
   # カードを既に登録していたらトップページに遷移
   def new
