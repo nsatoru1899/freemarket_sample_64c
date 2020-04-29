@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 
   def index
-	@parents = Category.where(ancestry: nil)
+    @parents = Category.where(ancestry: nil)
   end
 
 end
