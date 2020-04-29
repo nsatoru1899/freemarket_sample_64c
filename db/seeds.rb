@@ -27,7 +27,7 @@ lady_hair_accessories = lady.children.create(name: "ヘアアクセサリー")
 lady_goods = lady.children.create(name: "小物")
 lady_clock = lady.children.create(name: "時計")
 
-lady_tops.children.create([{ name: "Tシャツ/カットソー(半袖/袖なし)" }, 
+lady_tops.children.create([{ name: "Tシャツ/カットソー(半袖/袖なし)" },
 						   { name: "Tシャツ/カットソー（七分/長袖)" },
 						   { name: "シャツ/ブラウス（半袖/袖なし）" },
 						   { name: "シャツ/カットソー（七分/長袖）" },
@@ -39,7 +39,7 @@ lady_tops.children.create([{ name: "Tシャツ/カットソー(半袖/袖なし)
 						   { name: "チュニック" },
 						   { name: "カーディガン/ボレロ" },
 						   { name: "アンサンブル" },
-						   { name: "ベスト/じれ" },
+						   { name: "ベスト/ジレ" },
 						   { name: "パーカー" }])
 
 lady_jacket.children.create([{ name: "テーラードジャケット" }])
@@ -156,10 +156,10 @@ hobby_toy = hobby.children.create(name: "おもちゃ")
 hobby_talent = hobby.children.create(name: "タレントグッズ")
 hobby_anime = hobby.children.create(name: "コミック/アニメグッズ")
 hobby_card = hobby.children.create(name: "トレーディングカード")
-hobby_figure= hobby.children.create(name: "フィギュア")
+hobby_figure = hobby.children.create(name: "フィギュア")
 hobby_instrument = hobby.children.create(name: "楽器/器材")
 hobby_collection = hobby.children.create(name: "コレクション")
-hobby_millitary = hobby.children.create(name: "ミリタリー")
+hobby_military = hobby.children.create(name: "ミリタリー")
 hobby_artwork = hobby.children.create(name: "美術品")
 hobby_art = hobby.children.create(name: "アート用品")
 
@@ -258,7 +258,6 @@ hand_kids.children.create([{ name: "ファッション雑貨" }])
 hand_material.children.create([{ name: "各種パーツ" }])
 hand_creation.children.create([{ name: "ingress" }])
 
-
 ticket_music = ticket.children.create(name: "音楽")
 ticket_sports = ticket.children.create(name: "スポーツ")
 ticket_entertainment = ticket.children.create(name: "演劇/芸能")
@@ -274,7 +273,6 @@ ticket_event.children.create([{ name: "声優/アニメ" }])
 ticket_movie.children.create([{ name: "邦画" }])
 ticket_facility.children.create([{ name: "遊園地/テーマパーク" }])
 ticket_discount.children.create([{ name: "ショッピング" }])
-
 
 vehicle_body = vehicle.children.create(name: "自動車本体")
 vehicle_tire = vehicle.children.create(name: "自動車タイヤ/ホイール")

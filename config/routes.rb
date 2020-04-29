@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :tests
   resources :cards, only: %i[new create show destroy]
 
-  resources :items, only: %i[new create show edit update] 
+  resources :items, only: %i[new create show edit update]
   resources :categories, only: %i[index]
 
   resources :users do
