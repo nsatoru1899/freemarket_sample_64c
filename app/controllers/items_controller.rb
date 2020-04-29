@@ -24,6 +24,14 @@ class ItemsController < ApplicationController
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order('created_at DESC').limit(6)
   end
 
+  def destroy
+    item = Item.find(params[:id])
+    if item.destroy
+      redirect_to root_path
+    else
+      redirect_to item_path
+    end
+  end
   def edit; end
 
   def update
