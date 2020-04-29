@@ -69,9 +69,11 @@
         %textarea
         %button
           %span コメントする
-.icon-box
-
-
+-if user_signed_in? && current_user.id == @item.user_id
+  .btn-box
+    .btn-box__delete-btn
+      = link_to items_path, method: :delete do
+        %p この商品を削除する
 .item-boxes 
   %section.item-boxes__item-box.clearfix
     %h2.item-boxes__item-box__head
