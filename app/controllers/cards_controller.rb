@@ -85,7 +85,7 @@ class CardsController < ApplicationController
   # 他ユーザーがアクションを動かさないようにする
   def confirm_user
     user_params = params[:id]
-    if user_params != current_user.id.to_s then
+    if user_params != current_user.id.to_s
       redirect_to root_path
     end
   end
