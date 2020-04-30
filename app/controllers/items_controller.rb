@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!, only: %i[new create]
-  before_action :set_item, only: %i[show edit update buy pay]
+  before_action :set_item, only: %i[show edit update destroy buy pay]
   before_action :set_card, only: %i[buy pay]
   before_action :set_user_detail, only: [:buy]
 
@@ -32,10 +32,12 @@ class ItemsController < ApplicationController
       redirect_to root_path
     else
       render edit
-
     end
   end
-  def edit; end
+
+  def edit
+    @item.build_brand if @item.brand.nil?
+  end
 
   def update
     if @item.update(items_params)

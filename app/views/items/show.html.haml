@@ -70,10 +70,10 @@
         %textarea
         %button
           %span コメントする
--if user_signed_in? && current_user.id == @item.user_id
+-if user_signed_in? && current_user.id == @item.seller_id
   .btn-box
     .btn-box__delete-btn
-      = link_to items_path, method: :delete do
+      = link_to item_path(@item.id), method: :delete do
         %p この商品を削除する
 .item-boxes 
   %section.item-boxes__item-box.clearfix
