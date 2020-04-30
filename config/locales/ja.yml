@@ -21,7 +21,6 @@ ja:
         prefecture_code: 都道府県
         city: 市区町村
         block: 番地
-        restrict_dependent_destroy:
       item:
         name: 商品名
         category_id: カテゴリー
