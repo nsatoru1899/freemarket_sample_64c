@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   end
 
   def create
+    binding.pry
     @item = Item.new(items_params)
     @item.brand.destroy if @item.brand.name == ""
     if @item.save
@@ -35,11 +36,9 @@ class ItemsController < ApplicationController
 
     end
   end
-  
+
   def edit
-    if @item.brand == nil
-      @item.build_brand
-    end
+    @item.build_brand if @item.brand.nil?
   end
 
   def update
