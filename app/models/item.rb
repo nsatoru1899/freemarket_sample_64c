@@ -1,6 +1,6 @@
 class Item < ApplicationRecord
-  has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  # has_many :likes, dependent: :destroy
+  # has_many :comments, dependent: :destroy
   has_many :images, dependent: :destroy
   belongs_to :category
   belongs_to :brand, optional: true
