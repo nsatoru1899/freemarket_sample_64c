@@ -34,7 +34,10 @@ class ItemsController < ApplicationController
       render edit
     end
   end
-  def edit; end
+
+  def edit
+    @item.build_brand if @item.brand.nil?
+  end
 
   def update
     if @item.update(items_params)
