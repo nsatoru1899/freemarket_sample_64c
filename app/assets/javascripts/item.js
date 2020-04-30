@@ -95,7 +95,7 @@ $(document).on('turbolinks:load', ()=> {
   
   // 親カテゴリーを選択したら子カテゴリーが表示される（子カテゴリーを選択したら孫カテゴリーが表示される）
   // カテゴリー機能実装前のためデータはダミー
-  $('#item_category_id').hide();
+  if($("#item_category_2").size() == 0){$('#item_category_id').hide();};
   $("#item_category").on("change",function(){
     if($("#item_category_2").size()){
       var html = 
@@ -120,13 +120,14 @@ $(document).on('turbolinks:load', ()=> {
 
   $(document).on("change", "#item_category_2", function(){
     if($("#item_category_id").size()){
+      $('#item_category_id').remove();
       var html = 
       `<select name="item[category_id]" id="item_category_id">
             <option value="7">7</option>
             <option value="8">8</option>
             <option value="9">9</option>
         </select>`
-      $('#item_category_id').replaceWith(html);
+      $('.item-detail__category').append(html);
     }
     else{
       var html = 
