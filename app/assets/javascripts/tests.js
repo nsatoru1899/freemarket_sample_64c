@@ -9,5 +9,5 @@ $(function () {
   }, function() {
 	$(">ul:not(:animated)", this).stop(true, true).slideUp("fast");
 	$("grandchild.name", this).removeClass("active");
-	  });
+  });
 });
