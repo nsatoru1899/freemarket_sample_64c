@@ -12,7 +12,6 @@ class ItemsController < ApplicationController
   end
 
   def create
-    binding.pry
     @item = Item.new(items_params)
     @item.brand.destroy if @item.brand.name == ""
     if @item.save
