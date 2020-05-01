@@ -12,6 +12,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def complete
+    @parents = Category.where(ancestry: nil)
     build_resource(sign_up_params)
     if @user.save
       sign_in @user

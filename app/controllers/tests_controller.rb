@@ -1,6 +1,7 @@
 class TestsController < ApplicationController
   def index
     @items = Item.where('buyer_id IS NULL').order("id DESC").limit(3)
+    @parents = Category.where(ancestry: nil)
   end
 
   def create
