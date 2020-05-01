@@ -1,30 +1,31 @@
 = render 'shared/header'
+.show_main
+  .card-show-wrappaer
+    %h2.card-show-head 支払い方法
 
-.card-show-wrappaer
-  %h2.card-show-head 支払い方法
+    - if @card.blank?
+      .card-show-inner
+        %h3.card-show-list クレジットカード一覧
+        = link_to new_card_path, class: "add-card-btn" do
+          = icon('fas', 'credit-card',  class: "add-card-btn__icon") 
+          %span カードを追加する
 
-  - if @card.blank?
-    .card-show-inner
-      %h3.card-show-list クレジットカード一覧
-      = link_to new_card_path, class: "add-card-btn" do
-        = icon('fas', 'credit-card',  class: "add-card-btn__icon") 
-        %span カードを追加する
+    - else
+      .card-show-list__content
+        %h3.card-show-list クレジットカード一覧    
+        = form_tag(card_path, method: :delete, class: "card-show-list__content__form", id: 'charge-form', name: "inputForm") do
+          %figure
+            = image_tag "#{@card_src}", width: '49', height: '15', alt: @card_brand, id: "card_image"
+          .set-payment
+            = "**** **** **** " + "#{@card.last4}"
+          .set-payment
+            - exp_month = "#{@card.exp_month.to_s}"
+            - exp_year = "#{@card.exp_year.to_s.slice(2,3)}"
+            = exp_month + " / " + "#{exp_year}"
+          %input{name:"method", type:"hidden", value:"card"}
+          %button.payment-remove{type: "submit"}
+            削除する
 
-  - else
-    .card-show-list__content
-      %h3.card-show-list クレジットカード一覧    
-      = form_tag(card_path, method: :delete, class: "card-show-list__content__form", id: 'charge-form', name: "inputForm") do
-        %figure
-          = image_tag "#{@card_src}", width: '49', height: '15', alt: @card_brand, id: "card_image"
-        .set-payment
-          = "**** **** **** " + "#{@card.last4}"
-        .set-payment
-          - exp_month = "#{@card.exp_month.to_s}"
-          - exp_year = "#{@card.exp_year.to_s.slice(2,3)}"
-          = exp_month + " / " + "#{exp_year}"
-        %input{name:"method", type:"hidden", value:"card"}
-        %button.payment-remove{type: "submit"}
-          削除する    
-      
-
-= render 'shared/footer' 
+  = render"users/side_bar"
+= render 'shared/footer'
+= render 'shared/camera'

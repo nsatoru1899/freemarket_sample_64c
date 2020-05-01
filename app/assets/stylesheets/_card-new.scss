@@ -9,10 +9,19 @@
   border-radius: 4px;
 }
 
+.reg-main{
+  width: 100%;
+  max-width: 1040px;
+  margin: 0 auto;
+  margin-top: 40px;
+}
 .reg-wrapper{
   font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
   width: 700px;
-  max-width: 343px;
+  min-width: 343px;
+  float: right;
+  background-color: #fff;
+  text-align: -webkit-center;
 }
 
 .reg-card-form{

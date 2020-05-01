@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.string   "firstname",                                         null: false
     t.string   "familyname_kana",                                   null: false
     t.string   "firstname_kana",                                    null: false
-    t.integer  "phonenumber"
+    t.string   "phonenumber"
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
     t.string   "email",                                default: "", null: false

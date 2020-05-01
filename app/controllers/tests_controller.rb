@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
   def index
-    @items = Item.where('buyer_id IS NULL').order("id DESC").limit(3)
+    @items = Item.where('buyer IS NULL').order("id DESC").limit(3)
   end
 
   def create
