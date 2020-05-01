@@ -14,8 +14,21 @@
     .header__contents__nav
       %ul.header__contents__nav--left
         %li.header__contents__nav--left--category 
-          = link_to "" do 
+          = link_to categories_path do
             カテゴリー
+          .category
+            %ul.category1
+              - @parents.each do |parent|
+                %li.parent__list
+                  = link_to parent.name
+                  %ul.category2
+                    - parent.children.each do |child|
+                      %li.child__list
+                        = link_to child.name
+                        %ul.category3
+                          - child.children.each do |grandchild|
+                            %li.grandchild__list
+                              =link_to grandchild.name
         %li.header__contents__nav--left--brand 
           = link_to "" do
             ブランド

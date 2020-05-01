@@ -3,6 +3,7 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      item: 商品
     attributes:
       user:
         nickname: ニックネーム
@@ -20,15 +21,6 @@ ja:
         prefecture_code: 都道府県
         city: 市区町村
         block: 番地
-    errors:
-      messages:
-        record_invalid: 'バリデーションに失敗しました: %{errors}'
-        restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
-    models:
-      item: 商品
-    attributes:
       item:
         name: 商品名
         category_id: カテゴリー
@@ -44,6 +36,12 @@ ja:
         day_id: 発送までの日数
       brand:
         name: ブランド名
+    errors:
+      messages:
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
+        restrict_dependent_destroy:
+          has_one: "%{record}が存在しているので削除できません"
+          has_many: "%{record}が存在しているので削除できません"
   date:
     abbr_day_names:
     - 日

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200412042204) do
+ActiveRecord::Schema.define(version: 20200326152509) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id",         null: false
@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(version: 20200412042204) do
   end
 
   create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name",       null: false
+    t.string   "ancestry"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "name",       null: false
-    t.string   "ancestry",   null: false
+    t.index ["ancestry"], name: "index_categories_on_ancestry", using: :btree
   end
 
   create_table "images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -63,15 +64,17 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.integer  "brand_id"
     t.integer  "status_id",                   null: false
     t.integer  "charge_id",                   null: false
+    t.integer  "prefecture_id",               null: false
     t.integer  "day_id",                      null: false
     t.integer  "category_id",                 null: false
-    t.integer  "seller",                      null: false
-    t.integer  "buyer"
+    t.integer  "seller_id",                   null: false
+    t.integer  "buyer_id"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
-    t.integer  "prefecture_id"
     t.index ["brand_id"], name: "index_items_on_brand_id", using: :btree
+    t.index ["buyer_id"], name: "index_items_on_buyer_id", using: :btree
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+    t.index ["seller_id"], name: "index_items_on_seller_id", using: :btree
   end
 
   create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -90,6 +93,7 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.string   "phonenumber"
     t.date     "birth_date",                                        null: false
     t.text     "detail",                 limit: 65535
+    t.string   "avatar"
     t.string   "email",                                default: "", null: false
     t.string   "encrypted_password",                   default: "", null: false
     t.string   "reset_password_token"
@@ -97,7 +101,6 @@ ActiveRecord::Schema.define(version: 20200412042204) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false
-    t.string   "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -108,4 +111,6 @@ ActiveRecord::Schema.define(version: 20200412042204) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end

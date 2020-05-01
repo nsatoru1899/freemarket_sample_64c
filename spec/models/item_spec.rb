@@ -20,7 +20,6 @@ RSpec.describe Item, type: :model do
 
     # it "カテゴリーがなければ登録できない" do
     #   item = create(:item)
-    #   binding.pry
     #   item = build(:item)
     #   item.valid?
     #   expect(item.errors[:category]).to include("を入力してください")

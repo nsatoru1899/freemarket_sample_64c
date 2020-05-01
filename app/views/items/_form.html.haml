@@ -49,7 +49,7 @@
           2
         %option
           3
-      = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", id: "item_category_3", class: "item_category"  
+      = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", class: "item_category item_category_3"  
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'

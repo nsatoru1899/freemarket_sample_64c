@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
   before_action :set_card, except: [:create]
-
+  before_action :confirm_user, only: %i[show destroy]
   # カードを既に登録していたらトップページに遷移
   def new
     if @card.blank?
@@ -80,5 +80,13 @@ class CardsController < ApplicationController
 
   def set_card
     @card = Card.where(user_id: current_user.id).first
+  end
+
+  # 他ユーザーがアクションを動かさないようにする
+  def confirm_user
+    user_params = params[:id]
+    if user_params != current_user.id.to_s
+      redirect_to root_path
+    end
   end
 end
