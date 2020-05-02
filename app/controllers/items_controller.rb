@@ -29,6 +29,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.destroy
+      flash[:notice] = "投稿を削除しました"
       redirect_to root_path
     else
       render edit
