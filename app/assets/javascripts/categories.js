@@ -64,6 +64,7 @@ $(function() {
     });
   
     $(".item-detail__category").on("change", "#child_form", function() {
+      $('#category__box--grandchildren').remove();
       var childValue = $('#child_form option:selected').data('category');
       if (childValue != "選択してください") {
         $.ajax({
