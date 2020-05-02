@@ -70,10 +70,10 @@
           line-height: 38px;
         }
         &--brand {
-          position: fixed;
+          position: absolute;
+          left: 120px;
+          width: 90px;
           line-height: 38px;
-          left: 300px;
-          padding: 0 0 0 16px;
         }
       }
       &--right {
