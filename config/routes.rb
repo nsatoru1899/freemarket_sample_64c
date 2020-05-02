@@ -12,8 +12,8 @@ Rails.application.routes.draw do
     end
     collection do
       get 'complete', to: 'items#complete'
-      get 'get_category_children', defaults: { format: 'json' }
-      get 'get_category_grandchildren', defaults: { format: 'json' }
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
     end
   end
 
