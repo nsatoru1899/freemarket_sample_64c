@@ -3,6 +3,7 @@ class CardsController < ApplicationController
   require "payjp"
   before_action :authenticate_user!
   before_action :set_card, except: [:create]
+  before_action :set_category
   before_action :confirm_user, only: %i[show destroy]
   # カードを既に登録していたらトップページに遷移
   def new
@@ -89,4 +90,9 @@ class CardsController < ApplicationController
       redirect_to root_path
     end
   end
+
+  def set_category
+    @parents = Category.where(ancestry: nil)
+  end
+
 end

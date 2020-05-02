@@ -1,26 +1,26 @@
 = form_for(@item, builder: WithErrorFormBuilder) do |f|
   .item-image
-    = f.fields_for :images do |f|
-      .field.item-image__image
-        = f.label "出品画像", class: 'image-label'
-        %span.form-require 必須
-        %p
-          最大10枚までアップロードできます
-        .form-image
-          #drop-area
-            %label
-              .image-description
-                = image_tag 'camera_black.png', class: 'icon-camera'
-                %br
-                -#ドラッグアンドドロップまたは
-                -#%br
-                クリックしてファイルをアップロード
-                %br
+    .field.item-image__image
+      = f.label "出品画像", class: 'image-label'
+      %span.form-require 必須
+      %p
+        最大10枚までアップロードできます
+      .form-image
+        #drop-area
+          %label
+            .image-description
+              = image_tag 'camera_black.png', class: 'icon-camera'
+              %br
+              -#ドラッグアンドドロップまたは
+              -#%br
+              クリックしてファイルをアップロード
+              %br
+            = f.fields_for :images do |f|
               .file-field-group{data: {index: f.index}}
                 = f.file_field :src, class: 'image-input first-image'
                 %span.remove-image.first-image
                   削除
-          #previews
+        #previews
   .item-information
     .field.item-information__name
       = f.label "商品名", class: 'name-label'
@@ -42,14 +42,8 @@
       = f.label "カテゴリー", class: 'category-label'
       %span.form-require 必須
       %br/
-      %select#item_category
-        %option
-          1
-        %option
-          2
-        %option
-          3
-      = f.collection_select :category_id, Category.all, :id, :name, prompt: "選択してください", class: "item_category item_category_3"  
+      .select--wrap
+        = f.collection_select :category_id, Category.all.limit(13), :id, :name,{ prompt:"選択してください", class:"select--wrap-cat1__default-category1", id: "parent_form" }
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'

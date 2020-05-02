@@ -1,6 +1,7 @@
 .l-side {
   width: 280px;
   margin: 0 40px 0 0;
+  float: left;
   &-bar {
     margin: 0;
     background-repeat: no-repeat;
@@ -46,4 +47,10 @@
       }      
     }
   }
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
 }
