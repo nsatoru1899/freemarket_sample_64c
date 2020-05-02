@@ -1,5 +1,13 @@
 $(document).on('turbolinks:load', ()=> { 
+  fixURL();
   layoutImg();
+
+  function fixURL(){
+  var currentUrl = location.href
+  if(currentUrl=='http://localhost:3000/items' || currentUrl=='http://54.199.158.8/items'){
+  history.pushState('', '', location.href + '/new')
+  }};
+
 
   // ファイルフィールドと画像プレビューのレイアウトを整える関数
   function layoutImg(){
