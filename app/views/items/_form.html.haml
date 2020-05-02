@@ -1,26 +1,26 @@
 = form_for(@item, builder: WithErrorFormBuilder) do |f|
   .item-image
-    = f.fields_for :images do |f|
-      .field.item-image__image
-        = f.label "出品画像", class: 'image-label'
-        %span.form-require 必須
-        %p
-          最大10枚までアップロードできます
-        .form-image
-          #drop-area
-            %label
-              .image-description
-                = image_tag 'camera_black.png', class: 'icon-camera'
-                %br
-                -#ドラッグアンドドロップまたは
-                -#%br
-                クリックしてファイルをアップロード
-                %br
+    .field.item-image__image
+      = f.label "出品画像", class: 'image-label'
+      %span.form-require 必須
+      %p
+        最大10枚までアップロードできます
+      .form-image
+        #drop-area
+          %label
+            .image-description
+              = image_tag 'camera_black.png', class: 'icon-camera'
+              %br
+              -#ドラッグアンドドロップまたは
+              -#%br
+              クリックしてファイルをアップロード
+              %br
+            = f.fields_for :images do |f|
               .file-field-group{data: {index: f.index}}
                 = f.file_field :src, class: 'image-input first-image'
                 %span.remove-image.first-image
                   削除
-          #previews
+        #previews
   .item-information
     .field.item-information__name
       = f.label "商品名", class: 'name-label'
