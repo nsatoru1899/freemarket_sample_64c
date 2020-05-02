@@ -43,7 +43,12 @@
       %span.form-require 必須
       %br/
       .select--wrap
-        = f.collection_select :category_id, Category.all.limit(13), :id, :name,{ prompt:"選択してください", class:"select--wrap-cat1__default-category1", id: "parent_form" }
+        %select#item_category_id.select--wrap-cat1__default-category1
+          %option{value: "---", data: {category: "---"}}
+            選択してください
+          - @category.each do |category|
+            %option{value: category.id, data: {category: category.id}}
+              #{category.name}
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'

@@ -9,6 +9,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.images.new
     @item.build_brand
+    @category = Category.all.limit(13) 
   end
 
   def category_children
@@ -36,6 +37,7 @@ class ItemsController < ApplicationController
       render :create
     else
       @item.images.new
+      @category = Category.all.limit(13) 
       render :new
     end
   end
