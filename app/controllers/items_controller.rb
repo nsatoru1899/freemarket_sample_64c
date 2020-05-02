@@ -13,7 +13,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(items_params)
-    @item.brand.destroy if @item.brand.name == ""
+    # @item.brand.destroy if @item.brand.name == ""
     if @item.save
       render :create
     else
