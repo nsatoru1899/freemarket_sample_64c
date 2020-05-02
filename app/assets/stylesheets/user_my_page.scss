@@ -69,17 +69,6 @@ body{
           margin: 0;
           padding: 0;
           background-repeat: no-repeat;
-          .news{
-            display: none;
-            width:700px;
-            height: 236px;
-            background-image: image-url("mypage.yarukotolist.png");
-            &-contents-image{
-              width:600px;
-              height: 200px;
-              background-size: 80px;
-            }
-          }
           &-content{
             display: block;
             &-message{
