@@ -143,3 +143,24 @@
     ul {
       display: inline;
     }
+
+@mixin category {
+    outline:none;
+    width: 620px;
+    height: 48px;
+    margin-top: 15px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: none transparent;
+    vertical-align: middle;
+    font-size: inherit;
+    color: inherit;
+}
+
+#child_form {
+  @include category();
+}
+
+#grandchild_form {
+    @include category;
+}
