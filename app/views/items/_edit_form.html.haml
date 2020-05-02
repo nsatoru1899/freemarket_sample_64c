@@ -7,23 +7,22 @@
         最大10枚までアップロードできます
       .form-image
         #drop-area
-          %label
-            .image-description 
-            = f.fields_for :images do |f|
-              .file-field-group{data: {index: f.index}}
-                %label.default-label
-                  %span
-                    #{@item.images[f.index].src.identifier}
-                  = f.file_field :src, class: 'image-input image-default'
-                %span.remove-image
-                  削除
-              - if @item.persisted?
-                = f.check_box :_destroy, data:{ index: f.index }, class: 'hidden-destroy'
+          .image-description 
+          = f.fields_for :images do |f|
+            .file-field-group{data: {index: f.index}}
+              %label.default-label
+                %span
+                  #{@item.images[f.index].src.identifier}
+                = f.file_field :src, class: 'image-input image-default'
+              %span.remove-image
+                削除
             - if @item.persisted?
-              .file-field-group{data: {index: @item.images.count}}
-                = file_field_tag  :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'image-input'
-                %span.remove-image.empty-remove.remove-first
-                  削除                
+              = f.check_box :_destroy, data:{ index: f.index }, class: 'hidden-destroy'
+          - if @item.persisted?
+            .file-field-group{data: {index: @item.images.count}}
+              = file_field_tag  :src, name: "item[images_attributes][#{@item.images.count}][src]", class: 'image-input'
+              %span.remove-image.empty-remove.remove-first
+                削除                
         #previews
           - if @item.persisted?
             - @item.images.each_with_index do |image, i|
