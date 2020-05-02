@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item.build_brand
   end
 
-  def get_category_children
+  def category_children
     respond_to do |format|
       format.html
       format.json do
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def get_category_grandchildren
+  def category_grandchildren
     respond_to do |format|
       format.html
       format.json do
@@ -28,8 +28,6 @@ class ItemsController < ApplicationController
       end
     end
   end
-
-
 
   def create
     @item = Item.new(items_params)

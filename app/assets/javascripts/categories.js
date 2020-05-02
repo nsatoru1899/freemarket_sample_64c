@@ -37,7 +37,7 @@ $(function() {
         $('#category__box--children').remove();
         $('#category__box--grandchildren').remove();
         $.ajax({
-          url     : 'get_category_children',
+          url     : 'category_children',
           type    : 'GET',
           data    : {
             parent_id: parentValue
@@ -67,7 +67,7 @@ $(function() {
       var childValue = $('#child_form option:selected').data('category');
       if (childValue != "選択してください") {
         $.ajax({
-          url     : 'get_category_grandchildren',
+          url     : 'category_grandchildren',
           type    : 'GET',
           data    : {
             child_id: childValue
