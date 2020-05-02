@@ -1,6 +1,6 @@
 .wrapper
   = render 'shared/header'
-  .container-mypage
+  .container-mypage.clearfix
     .container-mypage__content
       .container-mypage__content-usericon
         .container-mypage__usericon-member
@@ -75,5 +75,5 @@
             %ul.list-content-transaction-active__now
 
     = render"users/side_bar"      
-  = render 'shared/footer'
-  = render 'shared/camera'
+= render 'shared/footer'
+= render 'shared/camera'
