@@ -1,8 +1,10 @@
 //DOM読み込みが完了したら実行
-document.addEventListener('DOMContentLoaded', (e) => {
-  // payjp.jsの初期化
+document.addEventListener(
+  "turbolinks:load", (e)  => {
+
+  // Payjpnの初期化
   Payjp.setPublicKey('pk_test_5368ce76b1e8ded509d2a439');
-  
+
   // ボタンのイベントハンドリング
   let btn = document.getElementById('token_submit');
   btn.addEventListener('click', (e) => {
