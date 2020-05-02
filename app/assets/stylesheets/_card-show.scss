@@ -1,9 +1,15 @@
-.card-show-wrappaer{
+.show-main{
+  width: 100%;
+  width: 1020px;
+  margin: 0 auto;
+}
+
+.card-show-wrapper{
   font-family: 'Source Sans Pro', Helvetica , Arial, 'æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“', 'YuGothic', 'ãƒ¡ã‚¤ãƒªã‚ª', 'Meiryo', sans-serif;
   width: 700px;
   background-color: #ffffff;
+  float: right;
 }
-
 
 .card-show-head{
   padding: 12px 4%;
@@ -60,5 +66,11 @@
   top: 0;
   right: 0;
   cursor: pointer;
+}
+
+.clearfix::after{
+  content: "";
+  clear: both;
+  display: block;
 }
 
