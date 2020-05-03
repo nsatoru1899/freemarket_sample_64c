@@ -1,7 +1,9 @@
 $(function() {
     // カテゴリーの選択肢を作成
+$(document).on('turbolinks:load', ()=> { 
+
     function appendOption(category) {
-      var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
+      var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
       return html;
     }
     // 
@@ -23,7 +25,7 @@ $(function() {
       var grandchildSelectHtml = '';
       grandchildSelectHtml = `
                               <div class='select--wrap' id= 'category__box--grandchildren'>
-                                <select class="select--wrap-cat1__default-category1" id="grandchild_form" name="category_id">
+                                <select class="select--wrap-cat1__default-category1" id="grandchild_form" name="item[category_id]">
                                   <option value="---" data-category="---">選択してください</option>
                                   ${insertHTML}
                                 </select>
