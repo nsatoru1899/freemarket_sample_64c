@@ -1,10 +1,10 @@
 $(function() {
-
+    // カテゴリーの選択肢を作成
     function appendOption(category) {
       var html = `<option value="${category.name}" data-category="${category.id}">${category.name}</option>`;
       return html;
     }
-  
+    // 
     function appendChildrenBox(insertHTML) {
       var childSelectHtml = '';
       childSelectHtml = `
@@ -15,6 +15,7 @@ $(function() {
                            </collection_celect>
                          </div>
                         `;
+                       console.log(insertHTML);
       $('.item-detail__category').append(childSelectHtml);
     }
   
