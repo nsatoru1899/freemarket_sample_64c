@@ -35,7 +35,7 @@ $(document).on('turbolinks:load', ()=> {
     }
   
     $("#item_category").on("change", function() {
-      var parentValue = document.getElementById("item_category").value;
+      var parentValue = $("#item_category").val();
       if (parentValue != "選択してください") {
         $('#category__box--children').remove();
         $('#category__box--grandchildren').remove();
