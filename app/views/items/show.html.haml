@@ -54,7 +54,7 @@
     = link_to edit_item_path(@item.id), class: "purchase_btn" do
       編集する
   -else
-    = link_to "", class: "purchase_btn" do
+    = link_to buy_item_path, class: "purchase_btn" do
       購入画面に進む
   .item-detail_text
     %p
