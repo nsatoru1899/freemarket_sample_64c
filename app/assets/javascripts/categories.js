@@ -1,5 +1,9 @@
 $(document).on('turbolinks:load', ()=> { 
 
+  // #item_category_idはバリデーションのため設置。入力不要なのでhideしておく
+    $('#item_category_id option').remove()
+    $('#item_category_id').hide()
+  
     function appendOption(category) {
       var html = `<option value="${category.id}" data-category="${category.id}">${category.name}</option>`;
       return html;
@@ -23,7 +27,6 @@ $(document).on('turbolinks:load', ()=> {
       grandchildSelectHtml = `
                               <div class='select--wrap' id= 'category__box--grandchildren'>
                                 <select class="select--wrap-cat1__default-category1" id="grandchild_form" name="item[category_id]">
-                                  <option value="---" data-category="---">選択してください</option>
                                   ${insertHTML}
                                 </select>
                               </div>
@@ -31,8 +34,8 @@ $(document).on('turbolinks:load', ()=> {
       $('.item-detail__category').append(grandchildSelectHtml);
     }
   
-    $("#item_category_id").on("change", function() {
-      var parentValue = document.getElementById("item_category_id").value;
+    $("#item_category").on("change", function() {
+      var parentValue = $("#item_category").val();
       if (parentValue != "選択してください") {
         $('#category__box--children').remove();
         $('#category__box--grandchildren').remove();
@@ -91,4 +94,11 @@ $(document).on('turbolinks:load', ()=> {
         $('#category__box--grandchildren').remove();
       }
     });
+  
+    // 送信時に孫フィールドまで存在すればバリデーション用のフィールドを削除
+    $(".actions").on("click", ".actions__submit", function() {
+      if ($('#category__box--grandchildren').size()){
+        $('#for_validate').remove();
+      }
+    })
   });
