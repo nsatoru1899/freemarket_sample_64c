@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item.build_brand if @item.brand.nil?
-    @g_category = @item.category
+    @category = Category.all.limit(13)
   end
 
   def update
