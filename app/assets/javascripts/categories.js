@@ -37,7 +37,7 @@ $(document).on('turbolinks:load', ()=> {
     $("#item_category").on("change", function() {
       var parentValue = $("#item_category").val();
       var selectedParentValue = $('.selected_parent_category').val();
-      if (parentValue != "" && parentValue != selectedParentValue ) { 
+      if (parentValue != "" || parentValue != selectedParentValue ) { 
         $.ajax({
           url     : 'category_children',
           type    : 'GET',
@@ -69,7 +69,7 @@ $(document).on('turbolinks:load', ()=> {
       // $('#category__box--grandchildren').remove();
       var childValue = $("#child_form").val();
       var selectedChildrenValue = $('.selected_children_category').val();
-      if (childValue != "" && childValue != selectedChildrenValue) {
+      if (childValue != "" || childValue != selectedChildrenValue) {
         $.ajax({
           url     : 'category_grandchildren',
           type    : 'GET',
