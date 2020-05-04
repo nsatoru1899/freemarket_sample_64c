@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     member do
       get 'buy', to: 'items#buy'
       post 'pay', to: 'items#pay'
+      get 'category_children', defaults: { format: 'json' }
+      get 'category_grandchildren', defaults: { format: 'json' }
     end
     collection do
       get 'complete', to: 'items#complete'

@@ -47,24 +47,13 @@
     .field.item-detail__category
       = f.label "カテゴリー", class: 'category-label'
       %span.form-require 必須
-      %br/
-      %select#item_category.item_category
-        %option
-          1
-        %option
-          2
-        %option
-          3
-      %br/
-      %select#item_category_2.item_category
-        %option
-          4
-        %option
-          5
-        %option
-          6
-      %br/
-      = f.collection_select :category_id, Category.all, :id, :name, class: "item_category"
+      = f.collection_select :category_id, @g_category.parent.parent.siblings, :id, :name,{include_blank: "選択してください", selected: @item.category.parent.parent.id}, {id: 'item_category'}
+      %input{name:"selected_parent_category", type: "hidden", value: @item.category.parent.parent.id, class: 'selected_parent_category' }
+      #category__box--children.select--wrap
+        = f.collection_select :category_id, @g_category.parent.siblings, :id, :name,{include_blank: "選択してください", selected: @item.category.parent.id}, { class: "category__box--children", id: 'child_form'}
+      %input{name:"selected_children_category", type: "hidden", value: @item.category.parent.id, class: 'selected_children_category' }
+      #category__box--grandchildren.select--wrap
+        = f.collection_select :category_id, @g_category.siblings, :id, :name,{include_blank: "---", selected: @item.category_id}, {id: 'grandchild_form', class: "category__box--grandchildren"}
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'
