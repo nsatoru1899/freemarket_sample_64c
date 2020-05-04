@@ -48,7 +48,6 @@ $(document).on('turbolinks:load', ()=> {
         })
   
         .done(function(children) {
-          debugger
           $('#category__box--children').remove();
           $('#category__box--grandchildren').remove();
           var insertHTML = '';
@@ -70,7 +69,6 @@ $(document).on('turbolinks:load', ()=> {
       // $('#category__box--grandchildren').remove();
       var childValue = $("#child_form").val();
       var selectedChildrenValue = $('.selected_children_category').val();
-      debugger
       if (childValue != "" && childValue != selectedChildrenValue) {
         $.ajax({
           url     : 'category_grandchildren',
