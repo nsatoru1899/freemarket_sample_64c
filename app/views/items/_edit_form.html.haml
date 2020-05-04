@@ -54,6 +54,8 @@
       %input{name:"selected_children_category", type: "hidden", value: @item.category.parent.id, class: 'selected_children_category' }
       #category__box--grandchildren.select--wrap
         = f.collection_select :category_id, @g_category.siblings, :id, :name,{include_blank: "---", selected: @item.category_id}, {id: 'grandchild_form', class: "category__box--grandchildren"}
+    .select--wrap#for_validate
+      = f.collection_select :category_id, Category.all.limit(1), :id, :name
     = f.fields_for :brand do |f|
       .field.item-detail__brand
         = f.label "ブランド", class: 'brand-label'

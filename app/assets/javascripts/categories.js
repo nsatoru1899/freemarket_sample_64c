@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', ()=> {
       childSelectHtml = `
                          <div class='select--wrap' id= 'category__box--children'>
                            <select class="select--wrap-cat1__default-category1" id="child_form" name="category_id">
-                             <option value="---" data-category="---">選択してください</option>
                              ${insertHTML}
                            </collection_celect>
                          </div>
@@ -99,6 +98,6 @@ $(document).on('turbolinks:load', ()=> {
     $(".actions").on("click", ".actions__submit", function() {
       if ($('#category__box--grandchildren').size()){
         $('#for_validate').remove();
-      }
+      } 
     })
   });
