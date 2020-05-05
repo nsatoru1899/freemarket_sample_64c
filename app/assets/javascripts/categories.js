@@ -100,4 +100,13 @@ $(document).on('turbolinks:load', ()=> {
         $('#for_validate').remove();
       } 
     })
+
+    $("#item_forms").submit(function(){
+      if(!$('#category__box--grandchildren').size()){
+        alert("カテゴリーは孫まで選択してください");
+        var scroll_point = $('#scroll_point').offset().top
+        $(window).scrollTop(scroll_point);
+        return false;
+      }
+    })
   });
