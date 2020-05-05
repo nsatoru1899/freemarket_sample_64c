@@ -14,7 +14,6 @@ $(document).on('turbolinks:load', ()=> {
       childSelectHtml = `
                          <div class='select--wrap' id= 'category__box--children'>
                            <select class="select--wrap-cat1__default-category1" id="child_form" name="category_id">
-                             <option value="---" data-category="---">選択してください</option>
                              ${insertHTML}
                            </collection_celect>
                          </div>
@@ -36,9 +35,8 @@ $(document).on('turbolinks:load', ()=> {
   
     $("#item_category").on("change", function() {
       var parentValue = $("#item_category").val();
-      if (parentValue != "選択してください") {
-        $('#category__box--children').remove();
-        $('#category__box--grandchildren').remove();
+      var selectedParentValue = $('.selected_parent_category').val();
+      if (parentValue != "" || parentValue != selectedParentValue ) { 
         $.ajax({
           url     : 'category_children',
           type    : 'GET',
@@ -67,9 +65,10 @@ $(document).on('turbolinks:load', ()=> {
     });
   
     $(".item-detail__category").on("change", "#child_form", function() {
-      $('#category__box--grandchildren').remove();
-      var childValue = $('#child_form option:selected').data('category');
-      if (childValue != "選択してください") {
+      // $('#category__box--grandchildren').remove();
+      var childValue = $("#child_form").val();
+      var selectedChildrenValue = $('.selected_children_category').val();
+      if (childValue != "" || childValue != selectedChildrenValue) {
         $.ajax({
           url     : 'category_grandchildren',
           type    : 'GET',
@@ -80,6 +79,7 @@ $(document).on('turbolinks:load', ()=> {
         })
   
         .done(function(grandchildren) {
+          $('#category__box--grandchildren').remove();
           var insertHTML = '';
           grandchildren.forEach(function(grandchild){
             insertHTML += appendOption(grandchild);
@@ -90,7 +90,6 @@ $(document).on('turbolinks:load', ()=> {
           alert('カテゴリーを入力して下さい');
         })
       } else {
-        $('#category__box--children').remove();
         $('#category__box--grandchildren').remove();
       }
     });
@@ -99,6 +98,6 @@ $(document).on('turbolinks:load', ()=> {
     $(".actions").on("click", ".actions__submit", function() {
       if ($('#category__box--grandchildren').size()){
         $('#for_validate').remove();
-      }
+      } 
     })
   });

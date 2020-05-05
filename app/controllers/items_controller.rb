@@ -57,6 +57,7 @@ class ItemsController < ApplicationController
 
   def edit
     @item.build_brand if @item.brand.nil?
+    @category = Category.all.limit(13)
   end
 
   def update
@@ -96,6 +97,7 @@ class ItemsController < ApplicationController
 
   def set_item
     @item = Item.find(params[:id])
+    @g_category = @item.category
   end
 
   def set_card
