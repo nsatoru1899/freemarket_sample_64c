@@ -1,4 +1,4 @@
-$(function () {
+$(document).on('turbolinks:load', ()=> { 
   $(".header__contents__nav--left--category").hover(function() {
   $("ul.category1").toggle();
   });
