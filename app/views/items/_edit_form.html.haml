@@ -47,13 +47,14 @@
     .field.item-detail__category
       = f.label "カテゴリー", class: 'category-label'
       %span.form-require 必須
-      = f.collection_select :category_name, @g_category.parent.parent.siblings, :id, :name,{include_blank: "", selected: @item.category.parent.parent.id}, {id: 'item_category'}
-      %input{name:"selected_parent_category", type: "hidden", value: @item.category.parent.parent.id, class: 'selected_parent_category' }
+      #category__box--parents.select--wrap
+        = f.collection_select :category_name, @g_category.parent.parent.siblings, :id, :name,{include_blank: "", selected: @item.category.parent.parent.id}, {id: 'item_category'}
+        %input{name:"selected_parent_category", type: "hidden", value: @item.category.parent.parent.id, class: 'selected_parent_category' }
       #category__box--children.select--wrap
         = f.collection_select :category_name, @g_category.parent.siblings, :id, :name,{include_blank: "", selected: @item.category.parent.id}, { class: "category__box--children", id: 'child_form'}
-      %input{name:"selected_children_category", type: "hidden", value: @item.category.parent.id, class: 'selected_children_category' }
+        %input{name:"selected_children_category", type: "hidden", value: @item.category.parent.id, class: 'selected_children_category' }
       #category__box--grandchildren.select--wrap
-        = f.collection_select :category_name, @g_category.siblings, :id, :name,{include_blank: "---", selected: @item.category_id}, {id: 'grandchild_form', class: "category__box--grandchildren"}
+        = f.collection_select :category_name, @g_category.siblings, :id, :name,{include_blank: "", selected: @item.category_id}, {id: 'grandchild_form', class: "category__box--grandchildren"}
     .select--wrap#for_validate
       = f.collection_select :category_id, Category.all.limit(1), :id, :name
     = f.fields_for :brand do |f|
