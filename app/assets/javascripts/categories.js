@@ -100,4 +100,15 @@ $(document).on('turbolinks:load', ()=> {
         $('#for_validate').remove();
       } 
     })
+
+    // 送信時に孫フィールドの存在をチェック
+    // 孫フィールドが存在しなければ送信を中止しアラート＋該当箇所までスクロール
+    $("#item_forms").submit(function(){
+      if(!$('#category__box--grandchildren').size()){
+        alert("カテゴリーは孫まで選択してください");
+        var scroll_point = $('#scroll_point').offset().top
+        $(window).scrollTop(scroll_point);
+        return false;
+      }
+    })
   });
