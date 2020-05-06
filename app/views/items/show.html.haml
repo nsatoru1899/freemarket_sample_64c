@@ -47,7 +47,7 @@
   .item-prices
     %span.prices
       ¥
-      = @item.price
+      = @item.price.to_s(:delimited, delimiter: ',')
     %span.tax (税込)
     %span.option 送料込み
   -if user_signed_in? && current_user.id == @item.seller_id
@@ -91,7 +91,7 @@
                 #{item.name}
               .text__under
                 .text__under__price
-                  #{item.price}円
+                  #{item.price.to_s(:delimited, delimiter: ',')}円
 .item-boxes 
   %section.item-boxes__item-box.clearfix
     %h2.item-boxes__item-box__head
@@ -108,5 +108,5 @@
                 #{item.name}
               .text__under
                 .text__under__price
-                  #{item.price}円
+                  #{item.price.to_s(:delimited, delimiter: ',')}円
 = render 'shared/footer'

@@ -87,7 +87,7 @@
                 %h3 #{item.name}
                 .main--5__contents--lists--list__content__detail
                   %ul
-                    %li #{item.price}円
+                    %li #{item.price.to_s(:delimited, delimiter: ',')}円
                   %p (税込)
                   =item.buyer
   %section.main--5
@@ -106,5 +106,5 @@
                 %h3 #{item.name}
                 .main--5__contents--lists--list__content__detail
                   %ul
-                    %li #{item.price}円
+                    %li #{item.price.to_s(:delimited, delimiter: ',')}円
                   %p (税込)

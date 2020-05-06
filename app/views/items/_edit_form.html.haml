@@ -101,12 +101,12 @@
       .commission-name
         販売手数料（10%）
       .commission-value
-        #{(@item.price * 0.1).to_i}
+        ¥#{(@item.price * 0.1).to_i.to_s(:delimited, delimiter: ',')}
     .price-information__profit
       .profit-name
         販売利益
       .profit-value
-        #{(@item.price * 0.9).to_i}
+        ¥#{(@item.price * 0.9).to_i.to_s(:delimited, delimiter: ',')}
   .actions
     .actions__submit
       = f.submit "更新する", class: 'send-btn'
