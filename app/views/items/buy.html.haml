@@ -66,8 +66,7 @@
     - if @card.present?
       .buy-body__item
         = form_tag(pay_item_path, method: :post) do
-          .buy-body__item__pay__btn--select
-            = submit_tag "購入する", class: "buy-body__item__pay__btn--select__btn", data: { disable_with: "送信中..." }
+          = submit_tag "購入する", class: "buy-body__item__pay__btn--select", data: { disable_with: "送信中..." }
 
     - else
       .buy-body__item
