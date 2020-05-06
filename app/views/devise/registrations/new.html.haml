@@ -50,7 +50,7 @@
           %br/
           = f.date_select(:birth_date, use_month_numbers: true, prompt: "--", start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width")
         .field-user
-          = f.label :detail
+          = f.label :説明
           %span.form-require 任意
           %br/
           = f.text_area :detail, autofocus: true, autocomplete: "detail", placeholder: "自己紹介", class: "text-space"

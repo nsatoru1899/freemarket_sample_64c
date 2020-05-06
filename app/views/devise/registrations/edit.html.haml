@@ -6,63 +6,63 @@
       登録情報編集
     = form_for(resource, as: resource_name, url: registration_path(resource_name), builder: WithErrorFormBuilder, html: { method: :put }) do |f|
       .main-field
-        .field-1
+        .field-edit-user
           = f.label :メールアドレス
           %br/
           = f.email_field :email, autofocus: true, autocomplete: "email", class: "text-space"
         - if devise_mapping.confirmable? && resource.pending_reconfirmation?
           %div
             Currently waiting confirmation for: #{resource.unconfirmed_email}
-        .field
+        .field-edit-user
           = f.label :password
           %br/
           = f.password_field :password, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
-        .field__password
+        .field-edit-user
           = f.label :password_confirmation
           %br/
           = f.password_field :password_confirmation, autocomplete: "new-password",placeholder: "変更したい方のみ記入してください", class: "text-space"
-        .field-name
+        .field-edit-user
           = f.label :お名前（全角）
           %br/
           = f.text_field :familyname, autofocus: true, autocomplete: "familyname", class: "text-space"
           %br/
           = f.text_field :firstname, autofocus: true, autocomplete: "firstname", class: "text-space"
-        .field-name
+        .field-edit-user
           = f.label :お名前かな（全角）
           %br/
           = f.text_field :familyname_kana, autofocus: true, autocomplete: "familyname_kana", class: "text-space"
           %br/
           = f.text_field :firstname_kana, autofocus: true, autocomplete: "firstname_kana", class: "text-space"
-        .field
+        .field-edit-user
           = f.label :電話番号
           %br/
           = f.telephone_field :phonenumber, autofocus: true, autocomplete: "phonenumber", class: "text-space"
-        .field
+        .field-edit-user
           = f.label :生年月日
           %br/
           = raw sprintf(f.date_select(:birth_date, use_month_numbers: true, start_year: (Time.now.year - 100), end_year: (Time.now.year), default: Time.now(),:class =>"bootstrap-date-only-width" ,date_separator: '%s'), '年 ', '月 ') + '日'
-        .field-detail
+        .field-edit-user
           = f.label :説明
           %br/
           = f.text_area :detail, autofocus: true, autocomplete: "detail", class: "text-space"
         = f.fields_for :address do |f|
-          .field
+          .field-edit-user
             = f.label :郵便番号
             %br/
             = f.text_field :postal_code, class: "text-space"
-          .field
+          .field-edit-user
             = f.label :都道府県
             %br/
             = f.collection_select :prefecture_code, Prefecture.all, :id, :name, prompt: "--"
-          .field
+          .field-edit-user
             = f.label :市区町村
             %br/
             = f.text_field :city, class: "text-space"
-          .field
+          .field-edit-user
             = f.label :番地
             %br/
             = f.text_field :block, class: "text-space"
-          .field
+          .field-edit-user
             = f.label :建物
             %br/
             = f.text_field :building, class: "text-space"
