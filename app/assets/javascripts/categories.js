@@ -105,7 +105,7 @@ $(document).on('turbolinks:load', ()=> {
     // 孫フィールドが存在しなければ送信を中止しアラート＋該当箇所までスクロール
     $("#item_forms").submit(function(){
       if(!$('#category__box--grandchildren').size()){
-        alert("カテゴリーは孫まで選択してください");
+        alert("カテゴリーは3段目まで選択してください");
         var scroll_point = $('#scroll_point').offset().top
         $(window).scrollTop(scroll_point);
         return false;
