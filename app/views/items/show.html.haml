@@ -49,7 +49,8 @@
       ¥
       = @item.price.to_s(:delimited, delimiter: ',')
     %span.tax (税込)
-    %span.option 送料込み
+    %span.option
+      = @item.charge.name
   -if user_signed_in? && current_user.id == @item.seller_id
     = link_to edit_item_path(@item.id), class: "purchase_btn" do
       編集する
@@ -75,38 +76,40 @@
     .btn-box__delete-btn
       = link_to item_path(@item.id), method: :delete do
         %p この商品を削除する
-.item-boxes 
-  %section.item-boxes__item-box.clearfix
-    %h2.item-boxes__item-box__head
-      = link_to "" do
-        #{@item.seller.nickname}さんのその他の出品
-    .item-boxes__item-box__contents.clearfix
-      - @user_items.each do |item|
-        %section.item-boxes__item-box__contents__content
-          = link_to item_path(item.id) do
-            %figure
-              = image_tag item.images[0].src
-            .text
-              %h3
-                #{item.name}
-              .text__under
-                .text__under__price
-                  #{item.price.to_s(:delimited, delimiter: ',')}円
-.item-boxes 
-  %section.item-boxes__item-box.clearfix
-    %h2.item-boxes__item-box__head
-      = link_to "" do
-        #{@item.category.name} その他の出品
-    .item-boxes__item-box__contents.clearfix
-      - @category_items.each do |item|
-        %section.item-boxes__item-box__contents__content
-          = link_to item_path(item.id) do
-            %figure
-              = image_tag item.images[0].src
-            .text
-              %h3
-                #{item.name}
-              .text__under
-                .text__under__price
-                  #{item.price.to_s(:delimited, delimiter: ',')}円
+.item-boxes
+  - if @user_items.present?
+    %section.item-boxes__item-box.clearfix
+      %h2.item-boxes__item-box__head
+        = link_to "" do
+          #{@item.seller.nickname}さんのその他の出品
+      .item-boxes__item-box__contents.clearfix
+        - @user_items.each do |item|
+          %section.item-boxes__item-box__contents__content
+            = link_to item_path(item.id) do
+              %figure
+                = image_tag item.images[0].src
+              .text
+                %h3
+                  #{item.name}
+                .text__under
+                  .text__under__price
+                    #{item.price.to_s(:delimited, delimiter: ',')}円
+.item-boxes
+  - if @category_items.present?
+    %section.item-boxes__item-box.clearfix
+      %h2.item-boxes__item-box__head
+        = link_to "" do
+          #{@item.category.name} その他の出品
+      .item-boxes__item-box__contents.clearfix
+        - @category_items.each do |item|
+          %section.item-boxes__item-box__contents__content
+            = link_to item_path(item.id) do
+              %figure
+                = image_tag item.images[0].src
+              .text
+                %h3
+                  #{item.name}
+                .text__under
+                  .text__under__price
+                    #{item.price.to_s(:delimited, delimiter: ',')}円
 = render 'shared/footer'
