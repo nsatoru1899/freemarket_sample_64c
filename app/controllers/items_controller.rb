@@ -136,7 +136,7 @@ class ItemsController < ApplicationController
   end
 
   def set_user_detail
-    @address = Address.find(current_user.id)
+    @address = current_user.address
     @user = User.find(current_user.id)
   end
 end
