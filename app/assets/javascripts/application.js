@@ -14,3 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(function(){
+  setTimeout("$('.delete').fadeOut('slow')", 1000)
+})
