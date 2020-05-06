@@ -166,20 +166,11 @@ body{
       @include fields();
       width: 620px;
     }
-    #item_category_2{
+    #child_form{
       @include fields();
       width: 620px;
     }
-    #item_category_id{
-      @include fields();
-      width: 620px;
-    }
-    #item_category_3{
-      display: none;
-      @include fields();
-      width: 620px;
-    }
-    .item_category{
+    #grandchild_form{
       @include fields();
       width: 620px;
     }
