@@ -22,7 +22,11 @@
         %tr
           %th カテゴリー
           %td
-            = @item.category.name
+            = @parent_category.name
+            %br
+            > #{@child_category.name}
+            %br
+            >> #{@item.category.name}
         %tr
           %th ブランド
           %td
@@ -99,7 +103,7 @@
     %section.item-boxes__item-box.clearfix
       %h2.item-boxes__item-box__head
         = link_to "" do
-          #{@item.category.name} その他の出品
+          #{@item.category.name}（#{@parent_category.name}） その他の出品
       .item-boxes__item-box__contents.clearfix
         - @category_items.each do |item|
           %section.item-boxes__item-box__contents__content

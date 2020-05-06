@@ -45,6 +45,9 @@ class ItemsController < ApplicationController
   def show
     @user_items = Item.where(seller_id: @item.seller_id).where.not(id: @item.id).order('created_at DESC').limit(6)
     @category_items = Item.where(category_id: @item.category_id).where.not(id: @item.id).order('created_at DESC').limit(6)
+    @grandchild_category = Category.find(@item.category_id)
+    @child_category = @grandchild_category.parent
+    @parent_category = @child_category.parent
   end
 
   def destroy
