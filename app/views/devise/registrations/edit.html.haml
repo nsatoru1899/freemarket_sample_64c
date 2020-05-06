@@ -68,8 +68,5 @@
             = f.text_field :building, class: "text-space"
         .actions__edit
           = f.submit "更新する", class: "next-edit"
-    %p
-      #{button_to "アカウントを削除する", registration_path(resource_name), data: { confirm: "本当に削除してよろしいですか？" }, method: :delete, class: "delete-btn"}
-    = link_to "トップページに戻る", :back, class: "back"
 .footer
   = render "shared/footer"      
