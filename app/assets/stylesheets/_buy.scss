@@ -65,7 +65,8 @@
   }
 
   &__pay__btn--select{
-    max-width: 343px;
+    display: block;
+    width: 100%;
     padding: 12px 0;
     background-color: #3CCACE;
     border-radius: 3px;
@@ -75,13 +76,6 @@
     text-align: center;
     cursor: pointer;
     
-    &__btn{
-      background-color: #3CCACE;
-      color: #fff;
-      border: none;
-      cursor: pointer;
-    }
-
     &--not{
       background-color: #333333;
       max-width: 343px;
