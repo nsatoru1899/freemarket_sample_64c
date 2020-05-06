@@ -113,8 +113,8 @@ $(document).on('turbolinks:load', ()=> {
     else{
       var commission = Math.round(price * 0.1); // 販売手数料
       var profit = price - commission; // 販売利益
-        $(".commission-value").text(commission);
-        $(".profit-value").text(profit);
+        $(".commission-value").text("¥"+commission.toLocaleString());
+        $(".profit-value").text("¥"+profit.toLocaleString());
       };
     })
 });
