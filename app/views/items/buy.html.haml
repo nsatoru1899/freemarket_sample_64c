@@ -32,7 +32,7 @@
         - if @card
           .buy-body__item--justified
             %h3.payment-info 支払い方法            
-            = link_to '変更する', card_path, class: "payment-info--blue"
+            = link_to '変更する', card_path(current_user.id), class: "payment-info--blue"
           %span.set-payment クレジットカード
           .set-payment
             = "**** **** **** " + "#{@card.last4}"
