@@ -1,6 +1,8 @@
 //DOM読み込みが完了したら実行
 document.addEventListener(
   "turbolinks:load", (e)  => {
+  //URLがcards/newの時だけ記述内容を実行
+  if(document.URL.match(/\/cards\/new/)) {
 
   // Payjpnの初期化
   Payjp.setPublicKey('pk_test_5368ce76b1e8ded509d2a439');
@@ -35,4 +37,5 @@ document.addEventListener(
       }
     });
   });
+ }
 }, false);
