@@ -27,7 +27,7 @@ class CardsController < ApplicationController
       )
       @card = Card.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
       if @card.save
-        redirect_to root_path
+        set_redirect_path
       else
         redirect_to action: "new"
       end
@@ -93,6 +93,19 @@ class CardsController < ApplicationController
 
   def set_category
     @parents = Category.where(ancestry: nil)
+  end
+
+  # referrerを用いて直前のURLによって、ページ遷移先を振り分け
+  def set_redirect_path
+    path = Rails.application.routes.recognize_path(request.referrer)
+    p_query = URI(request.referer).query
+    params_p_query = Rack::Utils.parse_nested_query(p_query)
+
+    if path[:controller] == "users/cards" && path[:action] == "new"
+      redirect_to card_path(current_user.id)
+    else
+      redirect_to buy_item_path(params_p_query["item_id"])
+    end
   end
 
 end

@@ -32,7 +32,7 @@
         - if @card
           .buy-body__item--justified
             %h3.payment-info 支払い方法            
-            = link_to '変更する', card_path, class: "payment-info--blue"
+            = link_to '変更する', card_path(current_user.id), class: "payment-info--blue"
           %span.set-payment クレジットカード
           .set-payment
             = "**** **** **** " + "#{@card.last4}"
@@ -47,7 +47,7 @@
         - else
           .buy-body__item__card
             %h3.payment-info 支払い方法
-            = link_to new_card_path, class: "payment-info--blue" do
+            = link_to buy_cards_new_path(:item_id => @item.id), class: "payment-info--blue" do
               = icon('fas', 'plus',  class: "payment-info--blue") 
               %span 登録してください
 
