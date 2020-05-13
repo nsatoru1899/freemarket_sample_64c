@@ -4,9 +4,9 @@ Rails.application.routes.draw do
   }
   root 'tests#index'
   resources :tests
-  
+  # 購入ページでのカード登録のためのURLを設定
   get 'buy/cards/new' => 'cards#new'
-  resources :cards, only: %i[create show destroy] 
+  resources :cards, only: %i[create show destroy]
 
   resources :items, only: %i[new create show edit update destroy] do
     member do
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   resources :categories, only: %i[index]
-
+  # ユーザーマイページでのカード登録のためのURLを設定
   namespace :users do
     resources :cards, only: :new
   end

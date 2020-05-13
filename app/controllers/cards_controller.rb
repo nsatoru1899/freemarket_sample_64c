@@ -95,12 +95,13 @@ class CardsController < ApplicationController
     @parents = Category.where(ancestry: nil)
   end
 
+  # referrerを用いて直前のURLによって、ページ遷移先を振り分け
   def set_redirect_path
     path = Rails.application.routes.recognize_path(request.referrer)
     p_query = URI(request.referer).query
     params_p_query = Rack::Utils.parse_nested_query(p_query)
-    
-    if path[:controller] == "users/cards" && path[:action] == "new" 
+
+    if path[:controller] == "users/cards" && path[:action] == "new"
       redirect_to card_path(current_user.id)
     else
       redirect_to buy_item_path(params_p_query["item_id"])
