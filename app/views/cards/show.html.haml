@@ -6,7 +6,7 @@
     - if @card.blank?
       .card-show-inner
         %h3.card-show-list クレジットカード一覧
-        = link_to new_card_path, class: "add-card-btn" do
+        = link_to new_users_card_path, class: "add-card-btn" do
           = icon('fas', 'credit-card',  class: "add-card-btn__icon") 
           %span カードを追加する
 
